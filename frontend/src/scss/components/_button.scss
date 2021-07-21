@@ -1,0 +1,27 @@
+
+button{
+    @include mButton();
+}
+
+.button.back{
+    color: $txt-black;
+    border: 1px solid $txt-black;
+    background-color: $txt-white;
+    &:hover{
+        background-color: $bg-color;
+        color: $txt-white;
+        border: 1px solid $txt-white;
+    }
+}
+
+button.primary{
+    background-color: $star-color;
+
+    &:hover{
+        border: 1px solid $txt-black;
+    }
+}
+
+button.block{
+    width: 100%;
+}

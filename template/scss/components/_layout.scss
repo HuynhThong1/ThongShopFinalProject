@@ -1,0 +1,105 @@
+.grid-container {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: 5rem 1fr 5rem;
+    height: 100%;
+}
+
+//header
+header {
+    grid-area: header;
+    background-color: $bg-color;
+
+    a {
+        color: $txt-white;
+        padding: $padding-1;
+    }
+
+    a.brand {
+        font-size: $txt-white;
+        font-size: $font-size-3;
+        font-weight: bold;
+    }
+}
+
+main {
+    grid-area: main;
+    padding: $padding-1;
+}
+
+footer {
+    grid-area: footer;
+    background-color: $bg-color;
+    color: $txt-white;
+}
+
+//Common
+
+h1 {
+    font-size: 1.8rem;
+    padding: 1rem 0;
+}
+
+h2 {
+    font-size: 1.6rem;
+    padding: 1rem 0;
+}
+
+a {
+    text-decoration: none;
+    &:hover {
+        color: $orange-color;
+    }
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.row.center {
+    justify-content: center;
+}
+
+//Image
+img {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}
+
+img.medium {
+    max-width: 29rem;
+    width: 100%;
+}
+
+//Card
+.card {
+    border: 0.1rem solid $border-white-color;
+    background-color: $bg-f8-color;
+    border-radius: 0.5rem;
+    margin: 1rem;
+
+    .card-body {
+        padding: 1rem;
+
+        > * {
+            margin-bottom: 0.5rem;
+        }
+
+        .price {
+            font-size: 2rem;
+        }
+
+        //Rating
+        .rating span {
+            color: $star-color;
+            margin: 0.1rem;
+        }
+    }
+}

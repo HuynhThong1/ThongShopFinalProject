@@ -1,0 +1,9 @@
+//Rating
+.rating span {
+    color: $star-color;
+    margin: 0.1rem;
+}
+
+.rating span:last-child{
+    color: $txt-black;
+}
