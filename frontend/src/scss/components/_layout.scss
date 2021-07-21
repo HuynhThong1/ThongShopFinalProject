@@ -66,12 +66,30 @@ li{
     flex: 2 1 50rem;
 }
 
+
+// Alert
 .success{
     color: $success-color;
 }
 
-.error{
+.danger{
     color: $error-color;
+}
+
+.alert{
+    padding: 1rem;
+    border: 0.1rem solid transparent;
+    border-radius: 0.5rem;
+}
+
+.alert-info{
+    color: $alert-info;
+    background-color: $bg-e0ff-color;
+}
+
+.alert-danger{
+    color: $alert-error;
+    background-color: $bg-ffe0-color;
 }
 
 
