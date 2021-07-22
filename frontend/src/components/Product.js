@@ -1,5 +1,6 @@
 import React from 'react'
 import Rating from './Rating';
+import {Link} from 'react-router-dom';
 
 export default function Product(props) {
 
@@ -7,13 +8,13 @@ export default function Product(props) {
 
     return (
         <div className="card">
-            <a href={`/product/${product._id}`}>
+            <Link to={`/product/${product._id}`}>
                 <img className="medium" src={product.image} alt={product.name} />
-            </a>
+            </Link>
             <div className="card-body">
-                <a href={`/product/${product._id}`}>
+                <Link to={`/product/${product._id}`}>
                     <h2>{product.name}</h2>
-                </a>
+                </Link>
                 <Rating rating={product.rating} numReviews={product.numReviews}/>
                 <div className="price">
                     $ {product.price}

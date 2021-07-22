@@ -66,6 +66,10 @@ li{
     flex: 2 1 50rem;
 }
 
+.min-30{
+    min-width: 30rem;
+}
+
 
 // Alert
 .success{
@@ -91,6 +95,8 @@ li{
     color: $alert-error;
     background-color: $bg-ffe0-color;
 }
+
+
 
 
 

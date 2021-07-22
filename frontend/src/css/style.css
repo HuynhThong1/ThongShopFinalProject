@@ -205,4 +205,39 @@ button.primary:hover {
 button.block {
   width: 100%;
 }
+
+input,
+select,
+textarea {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px #a4a4a4 solid;
+  font-size: 1.6rem;
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.wrapper {
+  /* width */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+
+.wrapper *::-webkit-scrollbar {
+  width: 10px;
+}
+
+.wrapper *::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.wrapper *::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+.wrapper *::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 /*# sourceMappingURL=style.css.map */
