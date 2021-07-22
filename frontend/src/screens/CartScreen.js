@@ -17,8 +17,8 @@ export default function CartScreen(props) {
     // const size = props.location.search 
     //     ? Number(props.location.search.split('=')[2]) : 'S';
 
-    console.log('props', props);
-    console.log('location', props.location.search)
+    // console.log('props', props);
+    // console.log('location', props.location.search)
 
 
     // let params = queryString.parse(props.location.search);

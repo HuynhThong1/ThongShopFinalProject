@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { addToCart } from '../actions/cartActions';
 import { detailsProduct } from '../actions/productActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
@@ -20,7 +21,9 @@ export default function ProductScreen(props) {
     }, [dispatch, productId])
 
 
-    const addToCartHandler = () => {
+    const addToCartHandler = (item) => {
+
+        dispatch(addToCart(item.product, item.qty))
         
         //props.history.push(`/cart/${productId}?qty=${qty}&&size=${size}`);
         props.history.push(`/cart/${productId}?qty=${qty}`);
@@ -116,7 +119,7 @@ export default function ProductScreen(props) {
                                                     </div>
                                                 </li>
                                                 <li>
-                                                    <button onClick={addToCartHandler} className="primary block">Add to Cart</button>
+                                                    <button onClick={addToCartHandler(product)} className="primary block">Add to Cart</button>
                                                 </li>
                                             </>
                                         )

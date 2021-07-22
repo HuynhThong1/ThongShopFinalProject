@@ -1,7 +1,24 @@
+import bcrypt from 'bcryptjs';
+
+
 const data = {
+
+    users: [
+        {
+            name: 'ThongAdmin',
+            email: 'thongadmin@gmail.com',
+            password: bcrypt.hashSync('1234', 8)
+        },
+        {
+            name: 'ThongUser1',
+            email: 'thonguser1@gmail.com',
+            password: bcrypt.hashSync('1234', 8)
+        },
+    ],
+
     products: [
         {
-            _id: '1',
+            
             name: 'Product name 1',
             category: 'Shirts',
             image: '/images/shirt01.jpg',
@@ -14,7 +31,7 @@ const data = {
             description: 'High quality product',
         },
         {
-            _id: '2',
+            
             name: 'Product name 2',
             category: 'Shirts',
             image: '/images/shirt02.jpg',
@@ -27,7 +44,7 @@ const data = {
             description: 'High quality product',
         },
         {
-            _id: '3',
+            
             name: 'Product name 3',
             category: 'Shirts',
             image: '/images/shirt03.jpg',
@@ -40,7 +57,7 @@ const data = {
             description: 'High quality product',
         },
         {
-            _id: '4',
+            
             name: 'Product name 4',
             category: 'Shirts',
             image: '/images/shirt04.jpg',
@@ -53,7 +70,7 @@ const data = {
             description: 'High quality product',
         },
         {
-            _id: '5',
+            
             name: 'Product name 5',
             category: 'Shirts',
             image: '/images/shirt05.jpg',
@@ -66,7 +83,7 @@ const data = {
             description: 'High quality product',
         },
         {
-            _id: '6',
+            
             name: 'Product name 6',
             category: 'Shirts',
             image: '/images/shirt06.jpg',
