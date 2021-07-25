@@ -4,6 +4,10 @@ import productRouter from './routers/productRouter.js';
 import userRouter from './routers/userRouter.js';
 
 const app = express();
+
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+
 // eslint-disable-next-line no-undef
 mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/thongshop', {
     useNewUrlParser: true,

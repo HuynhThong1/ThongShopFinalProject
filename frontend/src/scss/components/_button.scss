@@ -14,6 +14,16 @@ button{
     }
 }
 
+.button.black{
+    @include mButton();
+    background-color: $txt-black;
+
+    &:hover{
+        border: 1px solid $txt-white !important;
+    }
+}
+
+
 button.primary{
     background-color: $star-color;
 

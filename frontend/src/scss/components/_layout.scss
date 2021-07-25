@@ -72,6 +72,12 @@ li{
 
 
 // Alert
+
+.loading{
+    display: block !important;
+    
+}
+
 .success{
     color: $success-color;
 }
@@ -94,6 +100,17 @@ li{
 .alert-danger{
     color: $alert-error;
     background-color: $bg-ffe0-color;
+}
+
+
+.link{
+    text-align: center;
+    text-decoration: none;
+    color: $txt-white;
+
+    &:hover{
+        color: $txt-white;
+    }
 }
 
 
