@@ -1,24 +1,25 @@
-.dropdown{
+.dropdown {
     display: inline-block;
     position: relative;
 
-    .dropdown-content{
+    .dropdown-content {
         position: absolute;
         display: none;
         right: 0;
         min-width: 10rem;
         padding: 1rem;
         z-index: 1;
-        background-color: $bg-color;
         margin: 0;
         margin-top: 0.4rem;
         border-radius: 0.5rem;
+        box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
+        border-bottom: 1px solid #d9d9d9;
+        background-color: #fff;
     }
 
-    &:hover{
-        .dropdown-content{
+    &:hover {
+        .dropdown-content {
             display: block;
         }
     }
 }
-

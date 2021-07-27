@@ -28,7 +28,7 @@ export default function SigninScreen(props) {
     }
 
     useEffect(() => {
-        if(userInfo) {
+        if (userInfo) {
             props.history.push(redirect);
         }
     }, [props.history, redirect, userInfo])
@@ -36,32 +36,75 @@ export default function SigninScreen(props) {
 
 
     return (
+        <div>
+            {/* <form className="form" onSubmit={submitHandler} >
+                <div>
+                    <h1>Sign In</h1>
+                </div>
 
-        <form className="form" onSubmit={submitHandler} >
-            <div>
-                <h1>Sign In</h1>
-            </div>
+                {loading && <LoadingBox></LoadingBox>}
+                {error && <MessageBox variant="danger">{error}</MessageBox>}
 
-            {loading && <LoadingBox></LoadingBox>}
-            {error && <MessageBox variant="danger">{error}</MessageBox>}
-            <div>
-                <label htmlFor="email">Email address</label>
-                <input type="email" id="email" placeholder="Enter email" required onChange={e => setEmail(e.target.value)}></input>
-            </div>
-            <div>
-                <label htmlFor="password">Password</label>
-                <input type="password" id="password" placeholder="Enter password" required onChange={e => setPassword(e.target.value)}></input>
-            </div>
-            <div>
-                <label></label>
-                <button className="primary" type="submit">Sign In</button>
-            </div>
+                <div>
+                    <label htmlFor="email">Email address</label>
+                    <input type="email" id="email" placeholder="Enter email" required onChange={e => setEmail(e.target.value)}></input>
+                </div>
+                <div>
+                    <label htmlFor="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter password" required onChange={e => setPassword(e.target.value)}></input>
+                </div>
+                <div>
+                    <label></label>
+                    <button className="primary" type="submit">Sign In</button>
+                </div>
+                <div className="divider">
+                    <span>
+                        Or
+                    </span>
+                </div>
 
-            <div>
-                <label />
-                <Link to={`/register?redirect=${redirect}`} className="button black link">Create New Account</Link>
-            </div>
-        </form>
+                <div>
+                    <label />
+                    <Link to={`/register?redirect=${redirect}`} className="button black link">Create New Account</Link>
+                </div>
+            </form> */}
 
+
+            <div className="login-box">
+                <h2>Welcome to ThongShop</h2>
+                <div style={{marginBottom: 20}}>
+                    {loading && <LoadingBox></LoadingBox>}
+                    {error && <MessageBox variant="danger">{error}</MessageBox>}
+                </div>
+                <form onSubmit={submitHandler}>
+
+                    <div className="user-box">
+                        <input type="email" id="email"  required onChange={e => setEmail(e.target.value)} />
+                        <label>Email</label>
+                    </div>
+                    <div className="user-box">
+                        <input type="password" id="password"  required onChange={e => setPassword(e.target.value)} />
+                        <label>Password</label>
+                    </div>
+                    <button type="submit">
+                        <span />
+                        <span />
+                        <span />
+                        <span />
+                        Sign In
+                    </button>
+                    <br></br>
+                    <button type="button">
+                        <Link to={`/register?redirect=${redirect}`}>
+                            <span />
+                            <span />
+                            <span />
+                            <span />
+                            Register
+                        </Link>
+                    </button>
+                </form>
+            </div>
+        </div>
     )
 }

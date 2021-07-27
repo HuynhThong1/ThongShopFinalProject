@@ -1,16 +1,22 @@
 //header
 header {
-    grid-area: headerr;
-    background-color: $bg-color;
+    grid-area: header;
+    background-color: $primary-color;
+    position: fixed;
+    height: 6rem;
+    width: 100%;
+    border: 1px solid $border-color;
+    z-index: 9999;
 
     a {
-        color: $txt-white;
+        color: $txt-black;
         padding: $padding-1;
     }
 
     a.brand {
+        margin-left: $padding-1*5;
         font-size: $txt-white;
-        font-size: $font-size-3;
+        font-size: $font-size-2;
         font-weight: bold;
     }
 }

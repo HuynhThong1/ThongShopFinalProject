@@ -59,8 +59,11 @@ export const signin = (email, password) => async (dispatch) => {
 }
 
 
-export const signout = () => (dispatch) => {
+export const signout = () => (dispatch, getState) => {
     localStorage.removeItem('userInfo');
-    localStorage.removeItem('cartItems');
+    // localStorage.removeItem('cartItems');
+    //remove all products in cart when user press logout.
+    localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems = []));
+
     dispatch({ type: USER_SIGNOUT });
   };

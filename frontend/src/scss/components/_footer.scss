@@ -1,5 +1,59 @@
 footer {
     grid-area: footer;
-    background-color: $bg-color;
-    color: $txt-white;
+    background-color: $primary-color;
+    color: $txt-color;
+    // border: 1px solid $border-color;
+
+    .social-icon{
+        font-size: $font-size-3;
+        position: relative;
+        height: 10rem;
+        border-top: 1px solid $border-color;
+
+        span{
+            margin-right: $margin-1 * 5;
+
+            a{
+                color: $txt-black;
+
+                &:hover{
+                    i.fa-facebook{
+                        color: #2D3791;
+                    }
+                    i.fa-instagram{
+                        color: #833AB4;
+                    }
+                    i.fa-youtube{
+                        color: #FF0000;
+                    }
+                    i.fa-github{
+                        color: #333;
+                    }
+
+
+                    
+                }
+            }
+        }
+    }
+    
+    .footer-top{
+        border-top: 1px solid $border-color;
+        border-bottom: 1px solid $border-color;
+
+        h2{
+            // text-align: center;
+        }
+
+        p{
+            padding: 0 2rem;
+        }
+    }
+
+
+    .footer-bottom{
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
 }
+
