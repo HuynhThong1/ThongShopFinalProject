@@ -14,6 +14,10 @@ import ProfileScreen from './screens/ProfileScreen';
 import { HomeRoute } from './components/HomeRoute';
 import { PrivateRoute } from './components/PrivateRoute';
 import { NoneHomeRoute } from './components/NoneHomeRoute';
+import {AdminRoute} from './components/AdminRoute';
+import ProductListScreen from './screens/ProductListScreen';
+import ProductEditScreen from './screens/ProductEditScreen';
+
 
 function App() {
 
@@ -21,6 +25,7 @@ function App() {
     <BrowserRouter>
 
       <HomeRoute exact path="/product/:id" component={ProductScreen}></HomeRoute>
+      <HomeRoute exact path="/product/:id/edit" component={ProductEditScreen}></HomeRoute>
       <HomeRoute exact path="/cart/:id?" component={CartScreen}></HomeRoute>
       <NoneHomeRoute exact path="/signin" component={SigninScreen}></NoneHomeRoute>
       <NoneHomeRoute exact path="/register" component={RegisterScreen}></NoneHomeRoute>
@@ -30,6 +35,7 @@ function App() {
       <HomeRoute exact path="/order/:id" component={OrderScreen}></HomeRoute>
       <HomeRoute exact path="/orderhistory" component={OrderHistoryScreen}></HomeRoute>
       <PrivateRoute exact path="/profile" component={ProfileScreen}></PrivateRoute>
+      <AdminRoute exact path="/productlist" component={ProductListScreen}></AdminRoute>
 
       <HomeRoute exact path="/" component={HomeScreen}></HomeRoute>
 

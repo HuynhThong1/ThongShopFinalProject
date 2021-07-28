@@ -114,7 +114,7 @@ li {
 
 .alert-success {
   color: #20a020;
-  background-color: #ffe0e0e0;
+  background-color: #e0e0ff;
 }
 
 .link {
@@ -505,6 +505,10 @@ button.block {
   width: 100%;
 }
 
+button.small {
+  font-size: 1.2rem;
+}
+
 input,
 select,
 textarea {
@@ -619,7 +623,7 @@ textarea {
   position: absolute;
   display: none;
   right: 0;
-  min-width: 10rem;
+  min-width: 12rem;
   padding: 1rem;
   z-index: 1;
   margin: 0;
@@ -724,5 +728,25 @@ textarea {
 .checkout-steps > div.active {
   border-top-color: #183051;
   color: #183051;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table tbody tr:nth-of-type(odd) {
+  background-color: #f4f4f4;
+}
+
+.table td,
+.table th {
+  text-align: left;
+  border: 0.1rem solid #e4e4e4;
+  padding: 0.5rem;
+}
+
+.table button {
+  margin: 0 0.2rem;
 }
 /*# sourceMappingURL=style.css.map */

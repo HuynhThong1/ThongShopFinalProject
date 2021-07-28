@@ -1,18 +1,30 @@
 import React from 'react'
+import { Redirect, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import {Route, Redirect} from 'react-router-dom';
+import Footer from './Footer';
+import Header from './Header';
 
-export default function AdminRouter({ component: Component, ...rest }) {
-
+export const AdminRoute = (props) => {
 
     const userSignin = useSelector(state => state.userSignin);
     const { userInfo } = userSignin;
 
     return (
-        <Route {...rest} render={(props) => userInfo && userInfo.isAdmin ? (<Component {...props}></Component>) :
+        <Route exact path={props.path} render={(propsRoute) =>
+            userInfo && userInfo.isAdmin ? 
+            (<div className="grid-container">
+                <Header {...propsRoute} />
+                <main>
+                    <props.component {...propsRoute} />
+                </main>
+                <Footer {...propsRoute} />
+            </div>)
+            : 
             (
                 <Redirect to="/signin" />
-            )}
+            )
+
+        }
         ></Route>
     )
 }

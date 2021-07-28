@@ -65,13 +65,13 @@ export default function Header(props) {
                                     <Link to="/dashboard">Dashboard</Link>
                                 </li>
                                 <li>
-                                    <Link to="/dashboard">Products</Link>
+                                    <Link to="/productlist">Products</Link>
                                 </li>
                                 <li>
-                                    <Link to="/dashboard">Orders</Link>
+                                    <Link to="/orderlist">Orders</Link>
                                 </li>
                                 <li>
-                                    <Link to="/dashboard">Users</Link>
+                                    <Link to="/userlist">Users</Link>
                                 </li>
                             </ul>
                         </div>

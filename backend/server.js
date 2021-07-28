@@ -1,7 +1,9 @@
 import express from 'express';
 import  mongoose  from 'mongoose';
+import path from 'path';
 import orderRouter from './routers/orderRouter.js';
 import productRouter from './routers/productRouter.js';
+import uploadRouter from './routers/uploadRouter.js';
 import userRouter from './routers/userRouter.js';
 
 const app = express();
@@ -17,6 +19,8 @@ mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/thongshop', {
 });
 
 
+app.use('/api/uploads', uploadRouter);
+
 app.use('/api/users', userRouter);
 app.use('/api/products', productRouter);
 app.use('/api/orders', orderRouter);
@@ -24,6 +28,8 @@ app.get('/api/config/paypal', (req, res) =>{
     // eslint-disable-next-line no-undef
     res.send(process.env.PAYPAL_CLIENT_ID || 'sb');
 } )
+const __dirname = path.resolve();
+app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
 
 app.get('/', (req, res) => {
     res.send('Server is ready');
