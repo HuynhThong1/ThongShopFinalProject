@@ -1,258 +1,56 @@
-// .form {
-//     max-width: 60rem;
-//     width: 60%;
-//     //set center form use margin: 0 auto;
-//     margin: 0 auto;
-// }
-
-// .form > div {
-//     display: flex;
-//     flex-direction: column;
-//     margin: 1rem;
-// }
-
-// .form label {
-//     margin: 1rem 0;
-//     display: block;
-// }
-
-// .divider {
-//     display: block !important;
-//     margin: 0.5rem 5% !important;
-//     padding-top: 1.3rem;
-//     overflow: hidden;
-//     text-align: center;
-//     white-space: nowrap;
-//     width: 90%;
-
-//     span {
-//         display: inline-block;
-//         position: relative;
-//         color: #4b4f56;
-//         cursor: default;
-//         font-size: 13px;
-
-//         &::after,
-//         &::before {
-//             background: #ced0d4;
-//             content: "";
-//             height: 3px;
-//             position: absolute;
-//             top: 50%;
-//             width: 9999px;
-//         }
-
-//         &::before {
-//             margin-right: 15px;
-//             right: 100%;
-//         }
-
-//         &::after {
-//             margin-left: 15px;
-//             left: 100%;
-//         }
-//     }
-// }
-
-.login-box {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 400px;
-    padding: 40px;
-    transform: translate(-50%, -50%);
-    // background: rgba(0,0,0,.5);
-    box-sizing: border-box;
-    // box-shadow: 0 15px 25px rgba(0,0,0,.6);
-    // border-radius: 10px;
-
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
+.form {
+    max-width: 60rem;
+    width: 60%;
+    //set center form use margin: 0 auto;
+    margin: 0 auto;
 }
 
-.login-box h2 {
-    margin: 0 0 30px;
-    padding: 0;
-    color: $txt-black;
-    text-align: center;
+.form > div {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
 }
 
-.login-box .user-box {
-    position: relative;
+.form label {
+    margin: 1rem 0;
 }
 
-.login-box .user-box input {
-    width: 100%;
-    padding: 10px 0;
-    font-size: 16px;
-    color: $txt-black;
-    margin-bottom: 30px;
-    border: none;
-    border-bottom: 1px solid $txt-black;
-    outline: none;
-    background: transparent;
-}
-.login-box .user-box label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 10px 0;
-    font-size: 16px;
-    color: $txt-black;
-    pointer-events: none;
-    transition: 0.5s;
-}
-
-.login-box .user-box input:focus ~ label,
-.login-box .user-box input:valid ~ label {
-    top: -20px;
-    left: 0;
-    color: $hover-color;
-    font-size: 12px;
-}
-
-.login-box form button {
-    position: relative;
-    display: inline-block;
-    padding: 10px 20px;
-    color: $hover-color;
-    font-size: 16px;
-    text-decoration: none;
-    text-transform: uppercase;
+.divider {
+    display: block !important;
+    margin: 0.5rem 5% !important;
+    padding-top: 1.3rem;
     overflow: hidden;
-    transition: 0.5s;
-    margin-top: 40px;
-    letter-spacing: 4px;
-    background: 0 0;
-    border: none;
+    text-align: center;
+    white-space: nowrap;
+    width: 90%;
 
-    a {
-        color: $hover-color;
-    }
-}
+    span {
+        display: inline-block;
+        position: relative;
+        color: #4b4f56;
+        cursor: default;
+        font-size: 13px;
 
-.login-box button:hover {
-    background: $hover-color;
-    color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 5px $hover-color, 0 0 25px $hover-color, 0 0 50px $hover-color, 0 0 100px $hover-color;
+        &::after,
+        &::before {
+            background: #ced0d4;
+            content: "";
+            height: 3px;
+            position: absolute;
+            top: 50%;
+            width: 9999px;
+        }
 
-    &:hover {
-        a {
-            color: $txt-white;
+        &::before {
+            margin-right: 15px;
+            right: 100%;
+        }
+
+        &::after {
+            margin-left: 15px;
+            left: 100%;
         }
     }
 }
 
-.login-box button span {
-    position: absolute;
-    display: block;
-}
 
-.login-box button span:nth-child(1) {
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, $hover-color);
-    animation: btn-anim1 1s linear infinite;
-}
-
-@keyframes btn-anim1 {
-    0% {
-        left: -100%;
-    }
-    50%,
-    100% {
-        left: 100%;
-    }
-}
-
-.login-box button span:nth-child(2) {
-    top: -100%;
-    right: 0;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(180deg, transparent, $hover-color);
-    animation: btn-anim2 1s linear infinite;
-    animation-delay: 0.25s;
-}
-
-@keyframes btn-anim2 {
-    0% {
-        top: -100%;
-    }
-    50%,
-    100% {
-        top: 100%;
-    }
-}
-
-.login-box button span:nth-child(3) {
-    bottom: 0;
-    right: -100%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(270deg, transparent, $hover-color);
-    animation: btn-anim3 1s linear infinite;
-    animation-delay: 0.5s;
-}
-
-@keyframes btn-anim3 {
-    0% {
-        right: -100%;
-    }
-    50%,
-    100% {
-        right: 100%;
-    }
-}
-
-.login-box button span:nth-child(4) {
-    bottom: -100%;
-    left: 0;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(360deg, transparent, $hover-color);
-    animation: btn-anim4 1s linear infinite;
-    animation-delay: 0.75s;
-}
-
-@keyframes btn-anim4 {
-    0% {
-        bottom: -100%;
-    }
-    50%,
-    100% {
-        bottom: 100%;
-    }
-}
-
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-textarea:-webkit-autofill,
-textarea:-webkit-autofill:hover,
-textarea:-webkit-autofill:focus,
-select:-webkit-autofill,
-select:-webkit-autofill:hover,
-select:-webkit-autofill:focus {
-    -webkit-text-fill-color: $txt-black;
-    -webkit-box-shadow: 0 0 0px 1000px rgba(255, 255, 255, 0.1) inset;
-    transition: background-color 5000s ease-in-out 0s;
-    height: 70%;
-}
-
-@media screen and (max-width: 400px) {
-    .login-box{
-        width: 100%;
-        backdrop-filter: blur(0px);
-        -webkit-backdrop-filter: blur(0px);
-    }
-    
-    
-}

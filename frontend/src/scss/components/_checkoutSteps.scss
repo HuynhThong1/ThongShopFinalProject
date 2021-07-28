@@ -1,0 +1,11 @@
+.checkout-steps > div {
+    border-top: 0.3rem solid $border-white-color;
+    flex: 1;
+    padding: 1rem;
+    font-weight: bold;
+}
+
+.checkout-steps > div.active{
+    border-top-color: $hover-color;
+    color: $hover-color;
+}

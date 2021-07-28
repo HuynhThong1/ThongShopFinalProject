@@ -9,7 +9,7 @@ export default function LoadingBox() {
         <div className="loading">
             <div className="loading-content">
                 {/* <i style={{ marginRight: '1rem' }} className="fas fa-spinner"></i>Loading... */}
-                <span class="back">
+                <span className="back">
                     <span>L</span>
                     <span>o</span>
                     <span>a</span>
