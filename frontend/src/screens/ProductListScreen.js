@@ -85,16 +85,16 @@ export default function ProductListScreen(props) {
                     {products.map((product, index) => (
                         <tr key={index}>
                             <td>{product._id}</td>
-                            <td>{product.name}</td>
+                            <td style={{wordBreak: 'break-word', maxWidth: 700}}>{product.name}</td>
                             <td>{product.price}</td>
-                            <td>{product.category}</td>
-                            <td>{product.brand}</td>
+                            <td style={{wordBreak: 'break-word'}}>{product.category}</td>
+                            <td style={{wordBreak: 'break-word'}}>{product.brand}</td>
                             <td>
-                                <button type="button" className="small" onClick={() => props.history.push(`/product/${product._id}/edit`)}>
-                                    Edit
+                                <button type="button" className="small edit-button" onClick={() => props.history.push(`/product/${product._id}/edit`)}>
+                                <i class="fas fa-edit"></i>
                                 </button> 
-                                <button type="button" className="small" onClick={() => deleteHandler(product)}>
-                                    Delete
+                                <button type="button" className="small delete-button" onClick={() => deleteHandler(product)}>
+                                    <i class="fas fa-trash"></i>
                                 </button>
                             </td>
                         </tr>

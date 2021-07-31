@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-// import { addToCart } from '../actions/cartActions';
+import { addToCart } from '../actions/cartActions';
 import { detailsProduct } from '../actions/productActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
@@ -21,11 +21,10 @@ export default function ProductScreen(props) {
     }, [dispatch, productId])
 
 
-    const addToCartHandler = () => {
-        //props.history.push(`/cart/${productId}?qty=${qty}&&size=${size}`);
-        props.history.push(`/cart/${productId}?qty=${qty}`);
-        
-    };
+    // const addToCartHandler = () => {
+    //    // props.history.push(`/cart/${productId}?qty=${qty}&&size=${size}`);
+    //      props.history.push(`/cart/${productId}?qty=${qty}`);
+    // };
 
     return (
         <div>
@@ -36,7 +35,7 @@ export default function ProductScreen(props) {
             ) : (
                 <div>
                     <Link to="/"><button className="button back"><i className="fas fa-arrow-left"></i> Back</button></Link>
-                    <div className="row top">
+                    <div className="row top body-container">
                         <div className="col-2">
                             <img
                                 className="large"
@@ -44,25 +43,25 @@ export default function ProductScreen(props) {
                                 alt={product.name}
                             ></img>
                         </div>
-                        <div className="col-1">
-                            <ul>
-                                <li>
-                                    <h1>{product.name}</h1>
-                                </li>
-                                <li>
-                                    <Rating
-                                        rating={product.rating}
-                                        numReviews={product.numReviews}
-                                    ></Rating>
-                                </li>
-                                <li>Pirce : ${product.price}</li>
-                                <li>
-                                    Description:
-                                    <p>{product.description}</p>
-                                </li>
-                            </ul>
-                        </div>
-                        <div className="col-1">
+                        <div className="col-2">
+                            <div>
+                                <ul>
+                                    <li>
+                                        <h1>{product.name}</h1>
+                                    </li>
+                                    <li>
+                                        <Rating
+                                            rating={product.rating}
+                                            numReviews={product.numReviews}
+                                        ></Rating>
+                                    </li>
+                                    <li>Price : ${product.price}</li>
+                                    <li>
+                                        Description:
+                                        <p>{product.description}</p>
+                                    </li>
+                                </ul>
+                            </div>
                             <div className="card card-body">
                                 <ul>
                                     <li>
@@ -108,21 +107,18 @@ export default function ProductScreen(props) {
                                                             <select className="selection" value={qty} onChange={(e) => setQty(e.target.value)}>
                                                                 {
                                                                     [...Array(product.countInStock).keys()].map(x => (
-                                                                        <option key={x+1} value={x + 1}>{x + 1}</option>
-                                                                        
+                                                                        <option key={x + 1} value={x + 1}>{x + 1}</option>
+
                                                                     ))
-
-                                                                    
-                                                                    
                                                                 }
-
-                                                                
                                                             </select>
                                                         </div>
                                                     </div>
                                                 </li>
                                                 <li>
-                                                    <button onClick={addToCartHandler} className="primary block">Add to Cart</button>
+                                                    <button onClick={() => {
+                                                        dispatch(addToCart(product._id, qty));
+                                                    }} className="primary block">Add to Cart</button>
                                                 </li>
                                             </>
                                         )

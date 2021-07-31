@@ -22,7 +22,7 @@ export default function HomeScreen() {
         <LoadingBox></LoadingBox>
         : error
           ? <MessageBox variant="danger">{error}</MessageBox>
-          : <div className="row center">
+          : <div className="cards">
             {products.map((product, index) => {
               return <Product key={index} product={product} />
             })}

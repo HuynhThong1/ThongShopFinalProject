@@ -42,3 +42,35 @@ button.block{
 button.small{
     font-size: 1.2rem;
 }
+
+
+.edit-button{
+    background-color: $hover-color;
+    color: $txt-white;
+    height: 40px;
+    border-radius: 3px;
+    text-align: center;
+    border: 1px solid $border-white-color;
+    transition: all 0.5s;
+
+    &:hover{
+        background-color: $txt-white;
+        color: $hover-color;
+    }
+}
+
+
+.delete-button{
+    background-color: $error-color;
+    color: $txt-white;
+    height: 40px;
+    border-radius: 3px;
+    transition: all 0.5s;
+    text-align: center;
+    border: 1px solid $border-white-color;
+
+    &:hover{
+        background-color: $txt-white;
+        color: $error-color;
+    }
+}

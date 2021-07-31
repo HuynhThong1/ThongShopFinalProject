@@ -52,14 +52,15 @@ export default function CartScreen(props) {
 
     const renderSubtotal = () => {
         let totalItem = cartItems.reduce((totalItem, item) => {
-            return totalItem + item.qty;
+            return totalItem += item.qty;
         },0)
 
         let totalPrice = cartItems.reduce((totalPrice, item) => {
-                return totalPrice + item.price * item.qty;
+                return totalPrice += item.price * item.qty;
         },0)
+
         
-        return <h2>Subtotal({totalItem} items) : ${totalPrice} </h2>
+        return <h2>Subtotal({totalItem} items) : ${totalPrice.toLocaleString()} </h2>
     }
 
 
@@ -107,7 +108,7 @@ export default function CartScreen(props) {
                                                 </select>
                                             </div>
                                             <div>
-                                                ${item.price}
+                                                ${item.price.toLocaleString()}
                                             </div>
                                             <div>
                                                 <button type="button" onClick={() => removeFromCartHandler(item.product)}>Delete</button>

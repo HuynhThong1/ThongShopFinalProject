@@ -17,6 +17,7 @@ import { NoneHomeRoute } from './components/NoneHomeRoute';
 import {AdminRoute} from './components/AdminRoute';
 import ProductListScreen from './screens/ProductListScreen';
 import ProductEditScreen from './screens/ProductEditScreen';
+import OrderListScreen from './screens/OrderListScreen';
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
       <HomeRoute exact path="/orderhistory" component={OrderHistoryScreen}></HomeRoute>
       <PrivateRoute exact path="/profile" component={ProfileScreen}></PrivateRoute>
       <AdminRoute exact path="/productlist" component={ProductListScreen}></AdminRoute>
+      <AdminRoute exact path="/orderlist" component={OrderListScreen}></AdminRoute>
 
       <HomeRoute exact path="/" component={HomeScreen}></HomeRoute>
 

@@ -15,6 +15,7 @@ export default function Header(props) {
 
     const signoutHandler = () => {
         dispatch(signout());
+        props.history.push('/');
         // cartItems.map((item, index) => (dispatch(removeFromCart(item.product))));
         // console.log('cartItems logout', cartItems);
     
