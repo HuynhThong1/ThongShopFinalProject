@@ -57,7 +57,7 @@ export default function Product(props) {
                             <h1>{product.name}</h1>
                             <p>$ {product.price.toLocaleString()}</p>
                         </div>
-                        <div className="buy" disabled="true" onClick={addToCartEvent}><i className="fas fa-shopping-cart" /></div>
+                        <div className="buy" onClick={addToCartEvent}><i className="fas fa-shopping-cart" /></div>
                     </div>
                     <div className="right">
                         <div className="done"><i className="fas fa-check" /></div>

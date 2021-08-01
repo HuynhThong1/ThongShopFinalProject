@@ -4,7 +4,7 @@ import bcrypt from 'bcryptjs';
 import data from '../data.js';
 import User from '../models/userModel.js';
 import dotenv from 'dotenv';
-import { generateToken, isAuth } from '../utils.js';
+import { generateToken, isAdmin, isAuth } from '../utils.js';
 
 dotenv.config();
 
@@ -89,6 +89,51 @@ userRouter.put('/profile', isAuth, expressAsyncHandler(async (req, res) => {
             //npm i jsonwebtoken to user generateToken
             token: generateToken(updatedUser),
         })
+    }
+}))
+
+userRouter.get('/', isAuth, isAdmin, expressAsyncHandler(async (req, res) => {
+    const users = await User.find({}); //return all user 
+
+    res.send(users);
+}))
+
+
+userRouter.delete('/:id', isAuth, isAdmin, expressAsyncHandler(async(req, res) => {
+    const user = await User.findById(req.params.id);
+
+    if(user){
+
+        if(user.email === 'thongadmin@gmail.com'){
+            res.status(404).send({message: 'Cannot Delete Admin User'});
+            return;
+        }
+
+
+        const deleteUser = await user.remove();
+
+        res.send({message: 'User Deleted', user: deleteUser})
+    }
+
+    else{
+        res.status(404).send({message: 'User not Found'})
+    }
+}))
+
+
+userRouter.put('/:id', isAuth, isAdmin, expressAsyncHandler(async (req, res) => {
+    const user = await User.findById(req.params.id);
+
+    if(user){
+        user.name = req.body.name || user.name;
+        user.email = req.body.email || user.email;
+        user.isSeller = req.body.isSeller || user.isSeller;
+        user.isAdmin = req.body.isAdmin || user.isAdmin;
+        const updatedUser = await user.save();
+
+        res.send({message: 'User Updated', user: updatedUser})
+    }else{
+        res.status(404).send({message: 'User not Found'})
     }
 }))
 
