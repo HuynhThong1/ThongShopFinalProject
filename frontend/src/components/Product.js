@@ -10,20 +10,6 @@ export default function Product(props) {
     const qty = 1;
     const dispatch = useDispatch();
 
-    // console.log('product',props);
-
-
-    // let addButtons = document.querySelectorAll('.buy');
-    // let bottoms = document.querySelectorAll('.bottom');
-
-    // addButtons.forEach(addButton => {
-    //     addButton.addEventListener('click' , () => {
-    //         bottoms.forEach(bottom => bottom.classList.add("clicked"));
-    //     })
-    // })
-
-
-
     const addToCartEvent = () => {
 
         if (product.countInStock < 1) {
@@ -73,6 +59,10 @@ export default function Product(props) {
                 <div className="icon"><i className="fas fa-eye" /></div>
                 <div className="contents">
                     <h4 className="product-title">{product.name}</h4>
+                    <div className="content-item">
+                        {/* first seller is return of product seller, second seller is return a user seller */}
+                        <Link className="sellerName" to={`/seller/${product.seller._id}`}>Seller:  {product.seller.seller.name} </Link>
+                    </div>
 
                     <div className="content-item">
                         Price: {product.price.toLocaleString()}$

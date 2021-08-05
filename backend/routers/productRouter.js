@@ -2,56 +2,89 @@ import express from 'express';
 import expressAsyncHandler from 'express-async-handler';
 import data from '../data.js';
 import Product from '../models/productsModel.js';
-import {isAuth, isAdmin} from '../utils.js';
+import { isAuth, isAdmin, isSellerOrAdmin } from '../utils.js';
 
 const productRouter = express.Router();
 
 productRouter.get('/', expressAsyncHandler(async (req, res) => {
-    const products = await Product.find({});
+
+    const seller = req.query.seller || '';
+    const order = req.query.order || '';
+    const name = req.query.name || '';
+    const category = req.query.category || '';
+    const min = req.query.min && Number(req.query.min) !== 0 ? Number(req.query.min) : 0;
+    const max = req.query.max && Number(req.query.max) !== 0 ? Number(req.query.max) : 0;
+    const rating = req.query.rating && Number(req.query.rating) !== 0 ? Number(req.query.rating) : 0;
+
+    const sellerFilter = seller ? { seller } : {};
+    const nameFilter = name ? { name: { $regex: name, $options: 'i' } } : {};
+    const categoryFilter = category ? { category } : {};
+    // $gte: greater than -- $lte: less than
+    const priceFilter = min && max ? { price: { $gte: min, $lte: max } } : {};
+    const ratingFilter = rating ? { rating: { $gte: rating } } : {};
+    const sortOrder = order === 'lowest' ? { price: 1 } :
+                            order === 'highest' ? { price: -1 } :
+                            order === 'toprated' ? { rating: -1 } :{ _id: -1 };
+
+
+    const products = await Product.find({
+        ...sellerFilter,
+        ...nameFilter,
+        ...categoryFilter,
+        ...priceFilter,
+        ...ratingFilter
+    }).populate('seller', 'seller.name seller.logo').sort(sortOrder);
     res.send(products);
 }));
 
-productRouter.get('/seed', expressAsyncHandler(async(req, res) => {
+
+productRouter.get('/categories', expressAsyncHandler(async (req, res) => {
+    const categories = await Product.find().distinct('category');
+    res.send(categories);
+}))
+
+productRouter.get('/seed', expressAsyncHandler(async (req, res) => {
     // await Product.remove({});
     const createdProduct = await Product.insertMany(data.products);
-    res.send({createdProduct});
+    res.send({ createdProduct });
 }));
 
 productRouter.get('/:id', expressAsyncHandler(async (req, res) => {
-    const product = await Product.findById(req.params.id);
-    if(product){
+    const product = await Product.findById(req.params.id).populate('seller', 'seller.name seller.logo seller.rating seller.numReviews');
+    if (product) {
         res.send(product)
     }
-    else{
-        res.status(404).send({message: 'Product not found'});
+    else {
+        res.status(404).send({ message: 'Product not found' });
     }
 }));
 
-productRouter.post('/', isAuth, isAdmin, expressAsyncHandler(async(req, res) => {
+productRouter.post('/', isAuth, isSellerOrAdmin, expressAsyncHandler(async (req, res) => {
     const product = new Product({
         name: 'sample name' + Date.now(),
+        seller: req.user._id,
         image: '/images/shirt01.jpg',
         price: 0,
         category: 'sample category',
         brand: 'sample brand',
         countInStock: 0,
-        rating: 9,
+        rating: 0,
         numReviews: 0,
         description: 'sample description',
     });
 
     const createdProduct = await product.save();
 
-    res.send({message: 'Product created', product: createdProduct});
+    res.send({ message: 'Product created', product: createdProduct });
 }))
 
 
-productRouter.put('/:id', isAuth, isAdmin, expressAsyncHandler(async(req, res) =>  {
+productRouter.put('/:id', isAuth, isSellerOrAdmin, expressAsyncHandler(async (req, res) => {
     const productId = req.params.id;
 
     const product = await Product.findById(productId);
 
-    if(product){
+    if (product) {
         product.name = req.body.name;
         product.price = req.body.price;
         product.image = req.body.image;
@@ -63,22 +96,22 @@ productRouter.put('/:id', isAuth, isAdmin, expressAsyncHandler(async(req, res) =
 
         const updatedProduct = await product.save();
 
-        res.send({message: 'Product updated', product: updatedProduct})
-    }else{
-        res.status(404).send({message: 'Product not found'});
+        res.send({ message: 'Product updated', product: updatedProduct })
+    } else {
+        res.status(404).send({ message: 'Product not found' });
     }
 
 }))
 
 
-productRouter.delete('/:id', isAuth, isAdmin, expressAsyncHandler(async(req, res) =>{
+productRouter.delete('/:id', isAuth, isAdmin, expressAsyncHandler(async (req, res) => {
     const product = await Product.findById(req.params.id);
 
-    if(product){
+    if (product) {
         const deleteProduct = await product.remove();
-        res.send({message: 'Product Deleted', product: deleteProduct});
-    }else{
-        res.status(404).send({message: 'Product not Found'});
+        res.send({ message: 'Product Deleted', product: deleteProduct });
+    } else {
+        res.status(404).send({ message: 'Product not Found' });
     }
 }))
 

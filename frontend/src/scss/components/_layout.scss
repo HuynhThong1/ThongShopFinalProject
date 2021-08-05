@@ -79,6 +79,10 @@ li{
     align-items: flex-start;
 }
 
+.row.start{
+    justify-content: flex-start;
+}
+
 .col-1{
     flex: 1 1 25rem;
 }
@@ -87,8 +91,16 @@ li{
     flex: 2 1 50rem;
 }
 
+.col-3{
+    flex: 32 1 75rem;
+}
+
 .min-30{
     min-width: 30rem;
+}
+
+.p-1{
+    padding: 1rem;
 }
 
 
@@ -137,6 +149,25 @@ li{
 }
 
 
+.sellerName{
+    display:-webkit-box;
+    -webkit-line-clamp:1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+    color: $txt-black;
+    transition: all 0.5s;
+
+    &:hover{
+        font-size: 2rem;
+    }
+}
+
+
+.active{
+    font-weight: bold;
+}
 
 
 

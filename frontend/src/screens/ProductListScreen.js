@@ -7,6 +7,8 @@ import { PRODUCT_CREATE_RESET, PRODUCT_DELETE_RESET } from '../constants/product
 
 export default function ProductListScreen(props) {
 
+    const sellerMode = props.match.path.indexOf('/seller') >= 0;
+
 
     const productList = useSelector(state => state.productList);
 
@@ -22,8 +24,8 @@ export default function ProductListScreen(props) {
     const productDelete = useSelector(state => state.productDelete);
     const {loading: loadingDelete, error:errorDelete, success: successDelete} = productDelete;
 
-    console.log('loading delete', loadingDelete);
-
+    const userSignin = useSelector(state => state.userSignin);
+    const {userInfo} = userSignin;
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -36,8 +38,8 @@ export default function ProductListScreen(props) {
         if(successDelete){
             dispatch({type: PRODUCT_DELETE_RESET});
         }
-        dispatch(listProducts());
-    }, [createdProduct, dispatch, props.history, successCreate, successDelete])
+        dispatch(listProducts({seller: sellerMode ? userInfo._id: ''}));
+    }, [createdProduct, dispatch, props.history, sellerMode, successCreate, successDelete, userInfo._id])
 
 
     
@@ -91,10 +93,10 @@ export default function ProductListScreen(props) {
                             <td style={{wordBreak: 'break-word'}}>{product.brand}</td>
                             <td>
                                 <button type="button" className="small edit-button" onClick={() => props.history.push(`/product/${product._id}/edit`)}>
-                                <i class="fas fa-edit"></i>
+                                <i className="fas fa-edit"></i>
                                 </button> 
                                 <button type="button" className="small delete-button" onClick={() => deleteHandler(product)}>
-                                    <i class="fas fa-trash"></i>
+                                    <i className="fas fa-trash"></i>
                                 </button>
                             </td>
                         </tr>
