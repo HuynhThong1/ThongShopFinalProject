@@ -82,7 +82,7 @@ export const detailsUser = (userId) => async (dispatch, getState) => {
 
         const {data} = await Axios.get(`/api/users/${userId}`, {
             headers: {
-                Authorization: `Bearer ${userInfo.token}`
+                Authorization: `Bearer ${userInfo?.token}`
             }
         })
 
@@ -238,3 +238,4 @@ export const listTopSellers = () => async(dispatch, getState) => {
         })
     }
 }
+

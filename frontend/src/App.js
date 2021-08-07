@@ -23,6 +23,8 @@ import UserEditScreen from './screens/UserEditScreen';
 import { SellerRoute } from './components/SellerRoute';
 import SellerScreen from './screens/SellerScreen';
 import SearchScreen from './screens/SearchScreen';
+import MapScreen from './screens/MapScreen';
+import DashboardScreen from './screens/DashboardScreen';
 
 
 function App() {
@@ -45,10 +47,18 @@ function App() {
       <HomeRoute exact path="/search/name/:name?" component={SearchScreen}></HomeRoute>
       <HomeRoute exact path="/search/category/:category" component={SearchScreen}></HomeRoute>
       <HomeRoute exact path="/search/category/:category/name/:name" component={SearchScreen}></HomeRoute>
-      <HomeRoute exact path="/search/category/:category/name/:name/min/:min/max/:max/rating/:rating/order/:order" component={SearchScreen}></HomeRoute>
+      <HomeRoute exact path="/search/category/:category/name/:name/min/:min/max/:max/rating/:rating/order/:order/pageNumber/:pageNumber" component={SearchScreen}></HomeRoute>
 
       <PrivateRoute exact path="/profile" component={ProfileScreen}></PrivateRoute>
+      <PrivateRoute exact path="/map" component={MapScreen}></PrivateRoute>
+
+
+      <AdminRoute exact path="/dashboard" component={DashboardScreen}></AdminRoute>
+
+
       <AdminRoute exact path="/productlist" component={ProductListScreen}></AdminRoute>
+      <AdminRoute exact path="/productlist/pageNumber/:pageNumber" component={ProductListScreen}></AdminRoute>
+
       <AdminRoute exact path="/orderlist" component={OrderListScreen}></AdminRoute>
       <AdminRoute exact path="/userlist" component={UserListScreen}></AdminRoute>
       <AdminRoute exact path="/users/:id/edit" component={UserEditScreen}></AdminRoute>
@@ -57,6 +67,7 @@ function App() {
       <SellerRoute exact path="/orderlist/seller" component={OrderListScreen}></SellerRoute>
 
       <HomeRoute exact path="/" component={HomeScreen}></HomeRoute>
+      <HomeRoute exact path="/pageNumber/:pageNumber" component={HomeScreen}></HomeRoute>
 
     </BrowserRouter>
   );

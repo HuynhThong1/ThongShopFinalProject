@@ -7,18 +7,27 @@ const data = {
         {
             name: 'ThongAdmin',
             email: 'thongadmin@gmail.com',
-            password: bcrypt.hashSync('1234', 8)
+            password: bcrypt.hashSync('1234', 8),
+            isAdmin: true,
+            isSeller: true,
+            seller: {
+                name: 'Thong',
+                logo: 'images/Thong.jpg',
+                description: 'Thong1',
+                rating: 4.5,
+                numReviews: 120,
+            }
         },
         {
             name: 'ThongUser1',
             email: 'thonguser1@gmail.com',
-            password: bcrypt.hashSync('1234', 8)
+            password: bcrypt.hashSync('1234', 8),
+            isAdmin: false,
         },
     ],
 
     products: [
         {
-            
             name: 'Thongdepzai',
             category: 'Huynh',
             image: '/images/Thong.jpg',
