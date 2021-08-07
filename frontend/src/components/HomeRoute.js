@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react';
 import { Route } from 'react-router-dom';
 import Footer from './Footer';
 import Header from './Header';

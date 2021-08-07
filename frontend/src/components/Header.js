@@ -4,7 +4,7 @@ import { Link, Route } from 'react-router-dom';
 import { listProductCategories } from '../actions/productActions';
 import { signout } from '../actions/userActions';
 import SearchBox from './SearchBox';
-import LoadingBox from '../components/LoadingBox';
+// import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 
 export default function Header(props) {
@@ -119,10 +119,10 @@ export default function Header(props) {
                 <ul className="categories">
                     <li>
                         <strong>Categories</strong>
-                        <button className="close-sidebar" onClick={() => setSidebarIsOpen(false)}><i class="fas fa-times"></i></button>
+                        <button className="close-sidebar" onClick={() => setSidebarIsOpen(false)}><i className="fas fa-times"></i></button>
                     </li>
 
-                    {loadingCategories ? <LoadingBox></LoadingBox> :
+                    {loadingCategories ? '' :
                         errorCategories ? <MessageBox variant="danger">{errorCategories}</MessageBox> :
                             (
                                 categories.map(c => (

@@ -7,8 +7,7 @@ import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { listProducts } from '../actions/productActions';
 import { listTopSellers } from '../actions/userActions';
-import { Link, Route } from 'react-router-dom';
-import SearchBox from '../components/SearchBox';
+import { Link, } from 'react-router-dom';
 
 export default function HomeScreen() {
 

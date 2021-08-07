@@ -55,7 +55,7 @@ export default function SearchScreen(props) {
     return (
         <div>
             <div className="row">
-                {loading ? <LoadingBox></LoadingBox> :
+                {loading ? '' :
                     error ? <MessageBox variant="danger">{error}</MessageBox> :
                         (
                             <div>
@@ -79,7 +79,7 @@ export default function SearchScreen(props) {
                 <div className="col-1">
                     <h3>Department</h3>
                     <div>
-                        {loadingCategories ? <LoadingBox></LoadingBox> :
+                        {loadingCategories ? '' :
                             errorCategories ? <MessageBox variant="danger">{errorCategories}</MessageBox> :
                                 (
                                     <ul>
