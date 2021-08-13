@@ -31,7 +31,7 @@ export default function HomeScreen() {
   return (
     <div>
       <div className="row">
-        <h2>Top Sellers</h2>
+        <h2>Our Stores</h2>
       </div>
 
       {loadingSellers ?

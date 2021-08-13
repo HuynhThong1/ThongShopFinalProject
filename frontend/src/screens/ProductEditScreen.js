@@ -74,8 +74,6 @@ export default function ProductEditScreen(props) {
     const [loadingUpload, setLoadingUpload] = useState(false);
     const [errorUpload, setErrorUpload] = useState();
 
-
-
     const uploadFileHandler = async (e) => {
         //select
         const file = e.target.files[0];

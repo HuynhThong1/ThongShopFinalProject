@@ -112,7 +112,7 @@ export default function CartScreen(props) {
                                                 ${item.price.toLocaleString()}
                                             </div>
                                             <div>
-                                                <button type="button" onClick={() => removeFromCartHandler(item.product)}>Delete</button>
+                                                <button type="button" className="delete-button"onClick={() => removeFromCartHandler(item.product)}><i className="fas fa-trash"></i></button>
                                             </div>
                                         </div>
                                     </li>

@@ -9,6 +9,10 @@ header {
     border: 1px solid $border-color;
     z-index: 999;
 
+    .btn-sidebar{
+        display: none;
+    }
+
     a {
         color: $txt-black;
         padding: $padding-1;
@@ -19,5 +23,29 @@ header {
         font-size: $txt-white;
         font-size: $font-size-2;
         font-weight: bold;
+    }
+    .icon{
+        margin-right: 1rem;
+    }
+}
+
+
+@media screen and (max-width: 1070px) {
+    header{
+        .btn-sidebar{
+            display: inline-block;
+        }
+
+        .icon div{
+            display: none;
+        }
+    
+        .icon div:last-child{
+            display: block !important;
+        }
+
+        // .cart{
+        //     margin-right: 1rem;
+        // }
     }
 }

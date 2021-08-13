@@ -11,11 +11,11 @@ export default function ShippingAddressScreen(props) {
     const cart = useSelector(state => state.cart);
     const { shippingAddress } = cart;
 
-    // const [lat, setLat] = useState(shippingAddress.lat);
-    // const [lng, setLng] = useState(shippingAddress.lng);
+    const [lat, setLat] = useState(shippingAddress.lat);
+    const [lng, setLng] = useState(shippingAddress.lng);
 
-    // const userAddressMap = useSelector(state => state.userAddressMap);
-    // const { address: addressMap } = userAddressMap;
+    const userAddressMap = useSelector(state => state.userAddressMap);
+    const { address: addressMap } = userAddressMap;
 
 
     if (!userInfo) {
@@ -33,33 +33,33 @@ export default function ShippingAddressScreen(props) {
     const submitHandler = (e) => {
         e.preventDefault();
 
-        // const newLat = addressMap ? addressMap.lat : lat;
-        // const newLng = addressMap ? addressMap.lng : lng;
+        const newLat = addressMap ? addressMap.lat : lat;
+        const newLng = addressMap ? addressMap.lng : lng;
 
-        // if (addressMap) {
-        //     setLat(addressMap.lat);
-        //     setLng(addressMap.lng);
-        // }
-        // let moveOn = true;
-        // if (!newLat || !newLng) {
-        //     moveOn = window.confirm(
-        //         'You did not set your location on map. Continue?'
-        //     );
-        // }
-        // if (moveOn) {
-        //     dispatch(
-        //         saveShippingAddress({
-        //             fullName,
-        //             address,
-        //             city,
-        //             postalCode,
-        //             country,
-        //             lat: newLat,
-        //             lng: newLng,
-        //         })
-        //     );
-        //     props.history.push('/payment');
-        // }
+        if (addressMap) {
+            setLat(addressMap.lat);
+            setLng(addressMap.lng);
+        }
+        let moveOn = true;
+        if (!newLat || !newLng) {
+            moveOn = window.confirm(
+                'You did not set your location on map. Continue?'
+            );
+        }
+        if (moveOn) {
+            dispatch(
+                saveShippingAddress({
+                    fullName,
+                    address,
+                    city,
+                    postalCode,
+                    country,
+                    lat: newLat,
+                    lng: newLng,
+                })
+            );
+            props.history.push('/payment');
+        }
 
 
 
@@ -68,20 +68,20 @@ export default function ShippingAddressScreen(props) {
         props.history.push('/payment');
     }
 
-    // const chooseOnMap = () => {
-    //     dispatch(
-    //         saveShippingAddress({
-    //           fullName,
-    //           address,
-    //           city,
-    //           postalCode,
-    //           country,
-    //           lat,
-    //           lng,
-    //         })
-    //       );
-    //       props.history.push('/map');
-    //     };
+    const chooseOnMap = () => {
+        dispatch(
+            saveShippingAddress({
+              fullName,
+              address,
+              city,
+              postalCode,
+              country,
+              lat,
+              lng,
+            })
+          );
+          props.history.push('/map');
+        };
     
 
     return (
@@ -111,12 +111,12 @@ export default function ShippingAddressScreen(props) {
                     <label htmlFor="country">Country</label>
                     <input type="text" id="country" placeholder="Enter country" value={country} onChange={(e) => setCountry(e.target.value)} required />
                 </div>
-                {/* <div>
+                <div>
                     <label htmlFor="chooseOnMap">Location</label>
                     <button type="button" onClick={chooseOnMap}>
                         Choose On Map
                     </button>
-                </div> */}
+                </div>
                 <div>
                     <label />
                     <button className="primary" type="submit">

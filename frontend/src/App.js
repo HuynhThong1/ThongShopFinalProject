@@ -25,6 +25,8 @@ import SellerScreen from './screens/SellerScreen';
 import SearchScreen from './screens/SearchScreen';
 import MapScreen from './screens/MapScreen';
 import DashboardScreen from './screens/DashboardScreen';
+import SupportScreen from './screens/SupportScreen';
+import UserScreen from './screens/UserScreen';
 
 
 function App() {
@@ -49,11 +51,15 @@ function App() {
       <HomeRoute exact path="/search/category/:category/name/:name" component={SearchScreen}></HomeRoute>
       <HomeRoute exact path="/search/category/:category/name/:name/min/:min/max/:max/rating/:rating/order/:order/pageNumber/:pageNumber" component={SearchScreen}></HomeRoute>
 
+      <HomeRoute exact path="/user" component={UserScreen}></HomeRoute>
+
+
       <PrivateRoute exact path="/profile" component={ProfileScreen}></PrivateRoute>
       <PrivateRoute exact path="/map" component={MapScreen}></PrivateRoute>
 
 
       <AdminRoute exact path="/dashboard" component={DashboardScreen}></AdminRoute>
+      <AdminRoute exact path="/support" component={SupportScreen}></AdminRoute>
 
 
       <AdminRoute exact path="/productlist" component={ProductListScreen}></AdminRoute>

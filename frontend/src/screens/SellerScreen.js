@@ -32,7 +32,7 @@ export default function SellerScreen(props) {
     return (
         <div className="row top">
             <div className="col-1">
-                {loading ? <LoadingBox></LoadingBox> :
+                {loading ? '' :
                     error ? <MessageBox variant="danger">{error}</MessageBox> :
                         (
                             <ul className="card card-body">
