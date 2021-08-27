@@ -1,32 +1,33 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import ProductScreen from './screens/ProductScreen';
-import HomeScreen from './screens/HomeScreen';
-import CartScreen from './screens/CartScreen';
-import SigninScreen from './screens/SigninScreen';
-import RegisterScreen from './screens/RegisterScreen';
-import ShippingAddressScreen from './screens/ShippingAddressScreen';
-import PaymentMethodScreen from './screens/PaymentMethodScreen';
-import PlaceOrderScreen from './screens/PlaceOrderScreen';
-import OrderScreen from './screens/OrderScreen';
-import OrderHistoryScreen from './screens/OrderHistoryScreen';
-import ProfileScreen from './screens/ProfileScreen';
 import { HomeRoute } from './components/HomeRoute';
 import { PrivateRoute } from './components/PrivateRoute';
 import { NoneHomeRoute } from './components/NoneHomeRoute';
 import {AdminRoute} from './components/AdminRoute';
-import ProductListScreen from './screens/ProductListScreen';
-import ProductEditScreen from './screens/ProductEditScreen';
-import OrderListScreen from './screens/OrderListScreen';
-import UserListScreen from './screens/UserListScreen';
-import UserEditScreen from './screens/UserEditScreen';
 import { SellerRoute } from './components/SellerRoute';
-import SellerScreen from './screens/SellerScreen';
-import SearchScreen from './screens/SearchScreen';
-import MapScreen from './screens/MapScreen';
-import DashboardScreen from './screens/DashboardScreen';
-import SupportScreen from './screens/SupportScreen';
-import UserScreen from './screens/UserScreen';
+import SellerScreen from './screens/Users/SellerScreen';
+import OrderScreen from './screens/Orders/OrderScreen';
+import CartScreen from './screens/Orders/CartScreen';
+
+import ProductScreen from './screens/Products/ProductScreen';
+import ProductEditScreen from './screens/Products/ProductEditScreen';
+import SigninScreen from './screens/Users/SigninScreen';
+import RegisterScreen from './screens/Users/RegisterScreen';
+import PaymentMethodScreen from './screens/Orders/PaymentMethodScreen';
+import ShippingAddressScreen from './screens/Orders/ShippingAddressScreen';
+import PlaceOrderScreen from './screens/Orders/PlaceOrderScreen';
+import OrderHistoryScreen from './screens/Orders/OrderHistoryScreen';
+import SearchScreen from './screens/Products/SearchScreen';
+import UserScreen from './screens/Users/UserScreen';
+import ProfileScreen from './screens/Users/ProfileScreen';
+import MapScreen from './screens/Orders/MapScreen';
+import DashboardScreen from './screens/Users/DashboardScreen';
+import SupportScreen from './screens/Users/SupportScreen';
+import UserListScreen from './screens/Users/UserListScreen';
+import ProductListScreen from './screens/Products/ProductListScreen';
+import OrderListScreen from './screens/Orders/OrderListScreen';
+import UserEditScreen from './screens/Users/UserEditScreen';
+import HomeScreen from './screens/Products/HomeScreen';
 
 
 function App() {

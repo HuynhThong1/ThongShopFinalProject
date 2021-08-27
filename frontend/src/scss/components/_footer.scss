@@ -7,8 +7,9 @@ footer {
     .social-icon{
         font-size: $font-size-3;
         position: relative;
-        height: 10rem;
+        padding: 3rem 0;
         border-top: 1px solid $border-color;
+        border-bottom: 1px solid $border-color;
 
         span{
             margin-right: $margin-1 * 5;
@@ -29,31 +30,35 @@ footer {
                     i.fa-github{
                         color: #333;
                     }
-
-
                     
                 }
             }
         }
     }
-    
-    .footer-top{
-        border-top: 1px solid $border-color;
-        border-bottom: 1px solid $border-color;
-
-        h2{
-            // text-align: center;
-        }
-
-        p{
-            padding: 0 2rem;
-        }
-    }
 
 
     .footer-bottom{
-        padding-top: 1rem;
-        padding-bottom: 1rem;
+        padding: 3rem 0;
+
+        span{
+            a{
+                color: $txt-black;
+
+                &:hover, &:focus{
+
+                    color: $hover-color;
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 450px){
+    .footer-bottom{
+        p{
+            font-size: 13px;
+        }
     }
 }
 

@@ -9,6 +9,13 @@
     border: 1px solid #183051;
     text-transform: uppercase;
     background-color: #fff;
+    transition: all 0.5s;
+
+    &:hover {
+        color: $txt-white;
+        background-color: $hover-color;
+        border: 1px solid $txt-white;
+    }
 }
 
 .search input {

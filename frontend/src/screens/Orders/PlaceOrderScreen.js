@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { createOrder } from '../actions/orderActions';
-import CheckoutSteps from '../components/CheckoutSteps';
-import MessageBox from '../components/MessageBox';
-import { ORDER_CREATE_RESET } from '../constants/orderConstants';
-import LoadingBox from '../components/LoadingBox';
+import { createOrder } from '../../actions/orderActions';
+import CheckoutSteps from '../../components/CheckoutSteps';
+import MessageBox from '../../components/MessageBox';
+import { ORDER_CREATE_RESET } from '../../constants/orderConstants';
+import LoadingBox from '../../components/LoadingBox';
 
 export default function PlaceOrderScreen(props) {
 

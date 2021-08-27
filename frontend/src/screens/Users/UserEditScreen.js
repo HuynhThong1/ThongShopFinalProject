@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import MessageBox from '../components/MessageBox';
-import LoadingBox from '../components/LoadingBox';
+import MessageBox from '../../components/MessageBox';
+import LoadingBox from '../../components/LoadingBox';
 import { useDispatch, useSelector } from 'react-redux';
-import { detailsUser, updateUser } from '../actions/userActions';
-import { USER_UPDATE_RESET } from '../constants/userConstants';
+import { detailsUser, updateUser } from '../../actions/userActions';
+import { USER_UPDATE_RESET } from '../../constants/userConstants';
 
 export default function UserEditScreen(props) {
 

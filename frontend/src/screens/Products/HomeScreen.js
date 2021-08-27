@@ -3,11 +3,11 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Link, useParams } from 'react-router-dom';
 import { Carousel } from 'react-responsive-carousel';
 import { useSelector, useDispatch } from 'react-redux';
-import Product from '../components/Product';
-import LoadingBox from '../components/LoadingBox';
-import MessageBox from '../components/MessageBox';
-import { listProducts } from '../actions/productActions';
-import { listTopSellers } from '../actions/userActions';
+import Product from '../../components/Product';
+import LoadingBox from '../../components/LoadingBox';
+import MessageBox from '../../components/MessageBox';
+import { listProducts } from '../../actions/productActions';
+import { listTopSellers } from '../../actions/userActions';
 
 export default function HomeScreen() {
 

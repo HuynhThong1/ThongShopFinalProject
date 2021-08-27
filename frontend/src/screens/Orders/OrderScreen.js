@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import MessageBox from '../components/MessageBox';
-import LoadingBox from '../components/LoadingBox';
-import { deliverOrder, detailsOrder, payOrder } from '../actions/orderActions';
+import MessageBox from '../../components/MessageBox';
+import LoadingBox from '../../components/LoadingBox';
+import { deliverOrder, detailsOrder, payOrder } from '../../actions/orderActions';
 import axios from 'axios';
 import { PayPalButton } from 'react-paypal-button-v2';
-import { ORDER_DELIVER_RESET, ORDER_PAY_RESET } from '../constants/orderConstants';
+import { ORDER_DELIVER_RESET, ORDER_PAY_RESET } from '../../constants/orderConstants';
 
 export default function OrderScreen(props) {
 

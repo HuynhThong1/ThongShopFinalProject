@@ -67,7 +67,7 @@ export default function ChatBox(props) {
   return (
     <div className="chatbox">
       {!isOpen ? (
-        <button type="button" onClick={supportHandler}>
+        <button type="button" onClick={supportHandler} className="btn-chatbox">
           <i className="fas fa-comments" />
         </button>
       ) : (

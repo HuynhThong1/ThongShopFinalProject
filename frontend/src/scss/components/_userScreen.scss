@@ -1,11 +1,15 @@
 
+.user-right, .user-left {
+    h1{
+        font-size: 2rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        border-bottom: 1px solid $border-color;
+    }
+}
 
 .user-left{
     margin-right: 6rem;
-
-    h1 {
-        border-bottom: 1px solid $border-color;
-    }
     li{
         height: 6rem;
         display: flex;
@@ -13,8 +17,67 @@
         border-bottom: 1px solid $border-color;
 
         a {
-            color: $hover-color;
-            
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            color: #787878;
+        }
+
+        &:hover{
+            a{
+                color: $txt-black;
+            }
         }
     }
+
+    li:last-child{
+        border-bottom: none;
+    }
 }
+
+
+.user-right{
+    h3{
+        display: flex;
+        align-items: center;
+        height: 6rem;
+        font-size: 1.7rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        border-bottom: 1px solid $border-color;
+    }
+
+    .user-information{
+        div{
+            height: 6rem;
+            font-size: 1.5rem;
+        }
+        border-bottom: 1px solid $border-color;
+    }
+
+    .user-button-edit{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        height: 6rem;
+
+        .button-edit{
+            background-color: #787878;
+            border: 1px solid #787878;
+            border-radius: 3px;
+            display: inline-block;
+            padding: 0.8rem 4rem;
+            margin: 0;
+            color: #fff;
+            font-weight: 500;
+            
+    
+            &:hover{
+                background-color: $txt-black;
+            }
+        }
+    }
+   
+
+    
+}
+

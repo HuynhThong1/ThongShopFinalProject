@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
-import { listProducts } from '../actions/productActions';
-import Product from '../components/Product';
-import LoadingBox from '../components/LoadingBox';
-import MessageBox from '../components/MessageBox';
-import { prices, ratings } from '../utils.js';
-import Rating from '../components/Rating';
+import { listProducts } from '../../actions/productActions';
+import Product from '../../components/Product';
+import LoadingBox from '../../components/LoadingBox';
+import MessageBox from '../../components/MessageBox';
+import { prices, ratings } from '../../utils.js';
+import Rating from '../../components/Rating';
 
 export default function SearchScreen(props) {
 
@@ -80,7 +80,7 @@ export default function SearchScreen(props) {
             </div>
             <div className="row top">
                 <div className="col-1">
-                    <h3>Department</h3>
+                    <h3>Category</h3>
                     <div>
                         {loadingCategories ? '' :
                             errorCategories ? <MessageBox variant="danger">{errorCategories}</MessageBox> :

@@ -1,10 +1,10 @@
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { detailsUser, updateUserProfile } from "../actions/userActions";
-import LoadingBox from "../components/LoadingBox";
-import MessageBox from "../components/MessageBox";
-import { USER_UPDATE_PROFILE_RESET } from "../constants/userConstants";
+import { detailsUser, updateUserProfile } from "../../actions/userActions";
+import LoadingBox from "../../components/LoadingBox";
+import MessageBox from "../../components/MessageBox";
+import { USER_UPDATE_PROFILE_RESET } from "../../constants/userConstants";
 
 export default function ProfileScreen() {
   const [name, setName] = useState("");
@@ -157,9 +157,9 @@ export default function ProfileScreen() {
             </div>
             {user.isSeller && (
               <>
-                <h2>Seller</h2>
+                <h2>Store</h2>
                 <div>
-                  <label htmlFor="sellerName">Seller Name</label>
+                  <label htmlFor="sellerName">Store Name</label>
                   <input
                     id="sellerName"
                     type="text"
@@ -169,7 +169,7 @@ export default function ProfileScreen() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="sellerLogo">Seller Logo</label>
+                  <label htmlFor="sellerLogo">Store Banner</label>
                   <input
                     id="sellerLogo"
                     type="text"
@@ -192,7 +192,7 @@ export default function ProfileScreen() {
                   )}
                 </div>
                 <div>
-                  <label htmlFor="sellerDescription">Seller Description</label>
+                  <label htmlFor="sellerDescription">Store Description</label>
                   <input
                     id="sellerDescription"
                     type="text"
