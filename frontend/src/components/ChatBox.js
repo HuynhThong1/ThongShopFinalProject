@@ -74,7 +74,7 @@ export default function ChatBox(props) {
         <div className="card card-body">
           <div className="row">
             <strong>Support </strong>
-            <button type="button" onClick={closeHandler}>
+            <button type="button" onClick={closeHandler} className="close-button">
               <i className="fas fa-times" />
             </button>
           </div>
@@ -93,7 +93,7 @@ export default function ChatBox(props) {
                 type="text"
                 placeholder="type message"
               />
-              <button type="submit">Send</button>
+              <button type="submit" className="primary"><i class="fas fa-paper-plane"></i></button>
             </form>
           </div>
         </div>

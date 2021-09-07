@@ -31,7 +31,6 @@ button.primary{
 
     &:hover{
         border: 1px solid $txt-black;
-        transform: translateY(10%);
     }
 }
 
@@ -72,5 +71,26 @@ button.small{
     &:hover{
         background-color: $txt-white;
         color: $error-color;
+    }
+}
+
+
+.close-button{
+    // background-color: $error-color;
+    // color: $txt-white;
+    padding: 0 !important;
+    width: 3.2rem;
+    height: 3.2rem;
+    // border-radius: 100vh;
+    border: none;
+    background: 0 0;
+    color: $txt-black;
+    transform: scale(1);
+
+    &:hover{
+        // background-color: $txt-white;
+        // border: 1px solid $error-color;
+        // color: $txt-black;
+        transform: scale(1.5);
     }
 }

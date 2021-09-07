@@ -10,29 +10,36 @@ footer {
         padding: 3rem 0;
         border-top: 1px solid $border-color;
         border-bottom: 1px solid $border-color;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-        span{
-            margin-right: $margin-1 * 5;
+        a{
+            margin: 0 2rem 0 2rem;
+            color: $txt-black;
 
-            a{
-                color: $txt-black;
-
-                &:hover{
-                    i.fa-facebook{
-                        color: #2D3791;
-                    }
-                    i.fa-instagram{
-                        color: #833AB4;
-                    }
-                    i.fa-youtube{
-                        color: #FF0000;
-                    }
-                    i.fa-github{
-                        color: #333;
-                    }
-                    
+            &:hover{
+                i.fa-facebook{
+                    color: #2D3791;
                 }
+                i.fa-instagram{
+                    color: #833AB4;
+                }
+                i.fa-youtube{
+                    color: #FF0000;
+                }
+                i.fa-github{
+                    color: #333;
+                }
+                
             }
+        }
+
+        div{
+            // margin-right: $margin-1 * 5;
+            // padding: $padding-1 * 5;
+
+           
         }
     }
 

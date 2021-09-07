@@ -74,8 +74,7 @@ export default function Product(props) {
                         Brand: {product.brand}
                     </div>
                     <div className="description">
-                        Description:
-                        {product.description}
+                        Description: {product.description}
                     </div>
                     <div>
                         Quality:
