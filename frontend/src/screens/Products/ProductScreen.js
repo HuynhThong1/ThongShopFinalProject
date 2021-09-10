@@ -5,6 +5,7 @@ import { addToCart } from "../../actions/cartActions";
 import { createReview, detailsProduct } from "../../actions/productActions";
 import LoadingBox from "../../components/LoadingBox";
 import MessageBox from "../../components/MessageBox";
+import PageHero from "../../components/PageHero";
 import Rating from "../../components/Rating";
 import { PRODUCT_REVIEW_CREATE_RESET } from "../../constants/productConstants";
 
@@ -63,6 +64,7 @@ export default function ProductScreen(props) {
 
   return (
     <div>
+      <PageHero title2={`/product/${productId}`} name2={`${product?.name}`}></PageHero>
       {loading ? (
         <LoadingBox></LoadingBox>
       ) : error ? (
