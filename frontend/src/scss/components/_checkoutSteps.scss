@@ -9,3 +9,12 @@
     border-top-color: $hover-color;
     color: $hover-color;
 }
+
+
+
+
+@media screen and (max-width: 400px){
+    .checkout-steps > div {
+        font-size: 10px;
+    }
+}

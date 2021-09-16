@@ -36,7 +36,7 @@
     color: $txt-black;
     margin-bottom: 30px;
     border: none;
-    border-bottom: 1px solid $txt-black;
+    border-bottom: 1px solid $txt-black !important;
     outline: none;
     background: transparent;
 }

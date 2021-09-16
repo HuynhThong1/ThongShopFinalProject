@@ -117,6 +117,10 @@ li {
   padding: 1rem;
 }
 
+.text-center {
+  text-align: center;
+}
+
 .success {
   color: #20a020;
 }
@@ -185,7 +189,7 @@ header {
   z-index: 999;
 }
 
-header .open-sidebar {
+header .btn-sidebar {
   display: none;
 }
 
@@ -201,8 +205,12 @@ header a.brand {
   font-weight: bold;
 }
 
+header .icon {
+  margin-right: 1rem;
+}
+
 @media screen and (max-width: 1070px) {
-  header .open-sidebar {
+  header .btn-sidebar {
     display: inline-block;
   }
   header .icon div {
@@ -227,46 +235,51 @@ footer {
 footer .social-icon {
   font-size: 3rem;
   position: relative;
-  height: 10rem;
+  padding: 3rem 0;
   border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-footer .social-icon span {
-  margin-right: 5rem;
-}
-
-footer .social-icon span a {
+footer .social-icon a {
+  margin: 0 2rem 0 2rem;
   color: #040404;
 }
 
-footer .social-icon span a:hover i.fa-facebook {
+footer .social-icon a:hover i.fa-facebook {
   color: #2D3791;
 }
 
-footer .social-icon span a:hover i.fa-instagram {
+footer .social-icon a:hover i.fa-instagram {
   color: #833AB4;
 }
 
-footer .social-icon span a:hover i.fa-youtube {
+footer .social-icon a:hover i.fa-youtube {
   color: #FF0000;
 }
 
-footer .social-icon span a:hover i.fa-github {
+footer .social-icon a:hover i.fa-github {
   color: #333;
 }
 
-footer .footer-top {
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-}
-
-footer .footer-top p {
-  padding: 0 2rem;
-}
-
 footer .footer-bottom {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding: 3rem 0;
+}
+
+footer .footer-bottom span a {
+  color: #040404;
+}
+
+footer .footer-bottom span a:hover, footer .footer-bottom span a:focus {
+  color: #183051;
+}
+
+@media screen and (max-width: 450px) {
+  .footer-bottom p {
+    font-size: 13px;
+  }
 }
 
 .login-box {
@@ -534,7 +547,8 @@ select:-webkit-autofill:focus {
 
 .card-product .inside {
   z-index: 9;
-  background: #a6cdde;
+  background: #183051db;
+  color: #fff;
   width: 140px;
   height: 140px;
   position: absolute;
@@ -542,7 +556,7 @@ select:-webkit-autofill:focus {
   right: -70px;
   border-radius: 0px 0px 200px 200px;
   transition: all 0.5s, border-radius 2s, top 1s;
-  overflow: hidden;
+  overflow: hidden !important;
 }
 
 .card-product .inside .icon {
@@ -574,7 +588,7 @@ select:-webkit-autofill:focus {
 }
 
 .card-product .inside .contents {
-  color: #040404 !important;
+  color: #cbc1c1 !important;
   padding: 5%;
   opacity: 0;
   transform: scale(0.5);
@@ -584,6 +598,24 @@ select:-webkit-autofill:focus {
 
 .card-product .inside .contents > * {
   margin: 2rem;
+}
+
+.card-product .inside .contents .rating span:last-child {
+  color: #cbc1c1 !important;
+}
+
+.card-product .inside .contents .sellerName {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+  color: #cbc1c1;
+  transition: all 0.5s;
+}
+
+.card-product .inside .contents .sellerName:hover {
+  font-size: 2rem;
 }
 
 .card-product .inside .contents .description {
@@ -633,6 +665,7 @@ select:-webkit-autofill:focus {
   background: #f4f4f4;
   position: relative;
   float: left;
+  transition: all 1s;
 }
 
 .bottom .left .details {
@@ -646,7 +679,7 @@ select:-webkit-autofill:focus {
   width: calc(30% - 2px);
   height: 100%;
   background: #f1f1f1;
-  transition: background 0.5s;
+  transition: background 0.7s;
   border-left: solid thin rgba(0, 0, 0, 0.1);
 }
 
@@ -658,18 +691,18 @@ select:-webkit-autofill:focus {
 }
 
 .bottom .left .buy:hover {
-  background: #a6cdde;
+  background: #183051db;
 }
 
 .bottom .left .buy:hover i {
   transform: translateY(5px);
-  color: #00394b;
+  color: #cbc1c1;
 }
 
 .bottom .right {
   width: 50%;
-  background: #a6cdde;
-  color: white;
+  background: #183051;
+  color: #cbc1c1;
   float: right;
   height: 200%;
   overflow: hidden;
@@ -738,6 +771,12 @@ select:-webkit-autofill:focus {
     width: calc((100% / 1) - 15px);
     margin-left: 15px;
     margin-bottom: 15px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .shopping-cart .card {
+    margin: 5rem 0rem !important;
   }
 }
 
@@ -819,7 +858,6 @@ button.primary {
 
 button.primary:hover {
   border: 1px solid #040404;
-  transform: translateY(10%);
 }
 
 button.block {
@@ -860,6 +898,20 @@ button.small {
   color: #a02020;
 }
 
+.close-button {
+  padding: 0 !important;
+  width: 3.2rem;
+  height: 3.2rem;
+  border: none;
+  background: 0 0;
+  color: #040404;
+  transform: scale(1);
+}
+
+.close-button:hover {
+  transform: scale(1.5);
+}
+
 input,
 select,
 textarea {
@@ -880,7 +932,7 @@ textarea {
 }
 
 .wrapper *::-webkit-scrollbar {
-  width: 10px;
+  width: 5px;
 }
 
 .wrapper *::-webkit-scrollbar-track {
@@ -963,6 +1015,12 @@ textarea {
 .divider span::after {
   margin-left: 15px;
   left: 100%;
+}
+
+@media screen and (max-width: 400px) {
+  .form {
+    width: 90%;
+  }
 }
 
 .dropdown {
@@ -1081,6 +1139,12 @@ textarea {
   color: #183051;
 }
 
+@media screen and (max-width: 400px) {
+  .checkout-steps > div {
+    font-size: 10px;
+  }
+}
+
 .table {
   width: 100%;
   border-collapse: collapse;
@@ -1102,9 +1166,10 @@ textarea {
 }
 
 .carousel .slide img {
-  max-width: 50rem;
-  height: 55rem;
+  width: 100%;
+  height: 60rem;
   background: rgba(255, 255, 255, 0);
+  object-fit: cover;
 }
 
 .carousel.carousel-slider {
@@ -1122,6 +1187,13 @@ textarea {
   border: 1px solid #183051;
   text-transform: uppercase;
   background-color: #fff;
+  transition: all 0.5s;
+}
+
+.search button:hover {
+  color: #ffffff;
+  background-color: #183051;
+  border: 1px solid #ffffff;
 }
 
 .search input {
@@ -1133,17 +1205,16 @@ textarea {
 }
 
 .searchClicked {
-  transition: all 0.9s;
+  transition: all 0.5s;
   position: absolute;
   top: 6.1rem;
   left: 0;
   right: 0;
   width: 100%;
+  padding: 2rem;
   background-color: #ffffff;
   border-bottom: 1px solid #ddd;
-  padding: 2rem;
   margin: 0;
-  z-index: 1;
   transform: translateX(200%);
 }
 
@@ -1159,16 +1230,16 @@ textarea {
 
 .searchMobile button {
   position: absolute;
-  top: 5px;
-  right: 14px;
-  color: #183051;
-  font-size: 25px;
+  top: 7px;
+  right: 5px;
+  color: #000;
+  font-size: 17.8px;
   border: 0;
   background: none;
 }
 
 .searchMobile input {
-  width: 50%;
+  width: 100%;
   border: 0;
   padding: 16px 60px;
   background: none;
@@ -1187,11 +1258,16 @@ textarea {
 
 aside {
   position: fixed;
-  width: 30rem;
+  max-width: 30rem;
+  width: 100%;
   height: 100vh;
   background-color: #efefef;
-  z-index: 1000;
+  z-index: 1003;
   transform: translateX(-30rem);
+}
+
+aside a {
+  color: #183051;
 }
 
 aside ul {
@@ -1199,10 +1275,60 @@ aside ul {
   list-style: none;
 }
 
-aside li {
+aside li.link {
+  display: block;
+  color: #040404;
+  height: 60px;
+  position: relative;
+  border-bottom: 1px solid #ddd;
+}
+
+aside li.link span {
+  position: absolute;
+  left: 1rem;
+  top: 1.5rem;
+}
+
+aside li.link i {
+  position: absolute;
+  right: 1rem;
+  top: 1.5rem;
+}
+
+aside li.link:focus, aside li.link:hover {
+  color: #040404;
+}
+
+aside .dropdown-menu:hover .dropdown-menu-content {
+  height: 60px;
+  visibility: visible;
+}
+
+aside .dropdown-menu:hover i {
+  transition: all 0.5s;
+  transform: rotate(90deg);
+}
+
+aside .dropdown-menu-content {
+  position: absolute;
+  left: 0;
+  top: 5rem;
+  width: 100%;
+  height: 0;
+  visibility: hidden;
+  transition: all 0.5s;
+}
+
+aside .dropdown-menu-content div {
+  height: inherit;
+  border-bottom: 1px solid #ddd;
   display: flex;
-  justify-content: space-between;
-  padding: 1rem;
+  align-items: center;
+  padding-left: 2rem;
+}
+
+aside .dropdown-menu-content div a {
+  color: #040404;
 }
 
 aside .top-menu {
@@ -1251,7 +1377,7 @@ aside .closeButton span {
 }
 
 aside .closeButton span i {
-  margin-right: 1rem;
+  margin-right: 3rem;
 }
 
 aside.open {
@@ -1292,6 +1418,26 @@ button.close-sidebar i {
 
 .d-none {
   display: none;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  animation: fadeIn linear 0.3s;
+  z-index: 1002;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .full-container {
@@ -1387,7 +1533,7 @@ button.close-sidebar i {
 }
 
 .chatbox ul::-webkit-scrollbar {
-  width: 12px;
+  width: 7px;
   background-color: #f5f5f5;
 }
 
@@ -1397,8 +1543,20 @@ button.close-sidebar i {
   background-color: #555;
 }
 
+.chatbox .btn-chatbox {
+  background-color: #ffffff;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  transform: scale(0.9);
+}
+
+.chatbox .btn-chatbox:hover {
+  transform: scale(1);
+}
+
 .chatbox ul {
-  overflow-y: scroll;
+  overflow: auto;
   max-height: 20rem;
   max-width: 40rem;
 }
@@ -1408,7 +1566,7 @@ button.close-sidebar i {
 }
 
 .chatbox input {
-  width: calc(100% - 9rem);
+  width: calc(100% - 6.5rem);
 }
 
 .support-users {
@@ -1494,5 +1652,78 @@ button.close-sidebar i {
 
 .support-users .unread {
   background-color: #f02020;
+}
+
+.user-right h1, .user-left h1 {
+  font-size: 2rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  border-bottom: 1px solid #ddd;
+}
+
+.user-left {
+  margin-right: 6rem;
+}
+
+.user-left li {
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.user-left li a {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  color: #787878;
+}
+
+.user-left li:hover a {
+  color: #040404;
+}
+
+.user-left li:last-child {
+  border-bottom: none;
+}
+
+.user-right h3 {
+  display: flex;
+  align-items: center;
+  height: 6rem;
+  font-size: 1.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  border-bottom: 1px solid #ddd;
+}
+
+.user-right .user-information {
+  border-bottom: 1px solid #ddd;
+}
+
+.user-right .user-information div {
+  height: 6rem;
+  font-size: 1.5rem;
+}
+
+.user-right .user-button-edit {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 6rem;
+}
+
+.user-right .user-button-edit .button-edit {
+  background-color: #787878;
+  border: 1px solid #787878;
+  border-radius: 3px;
+  display: inline-block;
+  padding: 0.8rem 4rem;
+  margin: 0;
+  color: #fff;
+  font-weight: 500;
+}
+
+.user-right .user-button-edit .button-edit:hover {
+  background-color: #040404;
 }
 /*# sourceMappingURL=style.css.map */

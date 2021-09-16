@@ -18,19 +18,22 @@ const PageHero = ({ title, title2, name2 }) => {
 };
 
 const Wrapper = styled.section`
-  background: hsl(22, 31%, 88%);
+  background: #546d8f17;
   width: 100%;
-  min-height: 20vh;
+  min-height: 100px;
   display: flex;
   align-items: center;
   color: hsl(22, 28%, 21%);
   a {
-    color: hsl(22, 28%, 37%);
+    font-size: 2.5rem;
+    color: #000;
     padding: 0.5rem;
     transition: all 0.3s linear;
+    opacity: 0.7;
   }
   a:hover {
-    color: hsl(22, 28%, 21%);
+    color: #183051;
+    opacity: 1;
   }
 `;
 

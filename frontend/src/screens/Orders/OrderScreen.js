@@ -109,27 +109,29 @@ export default function OrderScreen(props) {
                                 </div>
                             </li>
                             <li>
-                                <div className="card card-body">
+                                <div className="card card-body wrapper">
                                     <h2>Order Items</h2>
-                                    <ul>
-                                        {
-                                            order.orderItems.map((item, index) => (
-                                                <li key={index}>
-                                                    <div className="row">
-                                                        <div>
-                                                            <img src={item.image} alt={item.name} className="small" />
+                                    <div className="" style={{overflow:'auto', maxHeight: '400px', height: '100%', paddingRight: 10 }}>
+                                        <ul >
+                                            {
+                                                order.orderItems.map((item, index) => (
+                                                    <li key={index}>
+                                                        <div className="row">
+                                                            <div>
+                                                                <img src={item.image} alt={item.name} className="small" />
+                                                            </div>
+                                                            <div className="min-30">
+                                                                <Link to={`/product/${item.product}`}>{item.name}</Link>
+                                                            </div>
+                                                            <div>
+                                                                {item.qty} x ${item.price} = ${item.qty * item.price}
+                                                            </div>
                                                         </div>
-                                                        <div className="min-30">
-                                                            <Link to={`/product/${item.product}`}>{item.name}</Link>
-                                                        </div>
-                                                        <div>
-                                                            {item.qty} x ${item.price} = ${item.qty * item.price}
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            ))
-                                        }
-                                    </ul>
+                                                    </li>
+                                                ))
+                                            }
+                                        </ul>
+                                    </div>
                                 </div>
                             </li>
                         </ul>

@@ -61,7 +61,10 @@ ul{
 
 li{
     margin-top: 1rem;
+}
 
+ul li a{
+    color: #000;
 }
 
 .row {
@@ -97,6 +100,14 @@ li{
 
 .min-30{
     min-width: 30rem;
+}
+
+.min-20{
+    min-width: 20rem;
+}
+
+.min-10{
+    min-width: 10rem;
 }
 
 .p-1{
@@ -170,26 +181,9 @@ li{
 
 .active{
     font-weight: bold;
+    border-bottom: 1px solid #000;
 }
 
-
-#img-container{
-	z-index: 1;
-	max-width: 500px;
-	position: relative;
-}
-
-#lens{
-	z-index: 2;
-	position: absolute;
-
-	height: 125px;
-	width: 125px;
-	border:2px solid black;
-	background-repeat: no-repeat;
-	cursor: none;
-
-}
 
 
 

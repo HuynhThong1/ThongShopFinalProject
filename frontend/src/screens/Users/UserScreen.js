@@ -6,6 +6,7 @@ import { USER_UPDATE_PROFILE_RESET } from "../../constants/userConstants";
 import { detailsUser } from "../../actions/userActions";
 import { listOrderMine } from "../../actions/orderActions";
 import MessageBox from '../../components/MessageBox';
+import PageHero from "../../components/PageHero";
 
 export default function UserScreen(props) {
   const userSignin = useSelector((state) => state.userSignin);
@@ -41,6 +42,8 @@ export default function UserScreen(props) {
 
   return (
     <div>
+      <PageHero title2={`/user`} name2={`Account`}></PageHero>
+
       <div className="row top" style={{ margin: "auto" }}>
         <div className="col-1 user-left">
           {userInfo && userInfo.isAdmin && (

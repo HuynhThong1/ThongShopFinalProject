@@ -7,6 +7,10 @@ aside {
     z-index: 1003;
     transform: translateX(-30rem);
 
+    a{
+        color: $hover-color;
+    }
+
     ul {
         padding: 0;
         list-style: none;

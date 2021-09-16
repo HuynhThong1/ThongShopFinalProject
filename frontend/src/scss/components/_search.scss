@@ -51,16 +51,16 @@
 
     button {
         position: absolute;
-        top: 5px;
-        right: 14px;
-        color: #183051;
-        font-size: 25px;
+        top: 7px;
+        right: 5px;
+        color: #000;
+        font-size: 17.8px;
         border: 0;
         background: none;
     }
 
     input {
-        width: 50%;
+        width: 100%;
         border: 0;
         padding: 16px 60px;
         background: none;
@@ -76,5 +76,11 @@
 
     .searchClickedMobile {
         display: block;
+    }
+}
+
+@media screen and (max-width: 1040px) {
+    .product-found{
+        margin-top: 20px;
     }
 }

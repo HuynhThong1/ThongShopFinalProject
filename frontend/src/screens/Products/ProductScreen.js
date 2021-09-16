@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 import { addToCart } from "../../actions/cartActions";
 import { createReview, detailsProduct } from "../../actions/productActions";
 import LoadingBox from "../../components/LoadingBox";
@@ -105,7 +106,7 @@ export default function ProductScreen(props) {
                   </li>
                 </ul>
               </div>
-              <div className="card card-body" style={{margin: 0}}>
+              <div className="card card-body" style={{ margin: 0 }}>
                 <ul>
                   <li>
                     Store{" "}
@@ -140,9 +141,9 @@ export default function ProductScreen(props) {
                   {product.countInStock > 0 && (
                     <>
                       <li>
-                        <div className="row">
+                        <div className="row" style={{margin: '2rem 0'}}>
                           <div>Qty</div>
-                          <div className="wrapper">
+                          {/* <div className="wrapper">
                             <select
                               className="selection"
                               value={qty}
@@ -156,7 +157,22 @@ export default function ProductScreen(props) {
                                 )
                               )}
                             </select>
-                          </div>
+                          </div> */}
+                          <WrapperButton>
+                            <ButtonPlusMinus onClick={() => {
+                              setQty(qty + 1);
+                            }}>+</ButtonPlusMinus>
+                            <div style={{ fontSize: '3rem', margin: '0 3rem' }}>{qty}</div>
+                            <ButtonPlusMinus onClick={() => {
+                              if (qty <= 1) {
+                                alert('Quantity must be more than 1. ')
+                                setQty(1);
+                              } else {
+                                setQty(qty - 1);
+                              }
+
+                            }}>-</ButtonPlusMinus>
+                          </WrapperButton>
                         </div>
                       </li>
                       <li>
@@ -252,3 +268,30 @@ export default function ProductScreen(props) {
     </div>
   );
 }
+
+
+const WrapperButton = styled.div`
+    display: grid;
+    width: 140px;
+    place-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    -webkit-box-align: center;
+`
+
+const ButtonPlusMinus = styled.button`
+    background: transparent;
+    border-color: transparent;
+    cursor: pointer;
+    padding: 1rem 0px;
+    width: 2rem;
+    height: 1rem;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    font-size: 3rem;
+`
+
+
+

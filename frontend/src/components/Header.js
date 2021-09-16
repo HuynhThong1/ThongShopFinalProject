@@ -104,7 +104,7 @@ export default function Header(props) {
               )}
             </div>
             <div>MENU</div>
-            <div onClick={() => setClicked(true)}>
+            <div onClick={() => setClicked(true)} style={{cursor: 'pointer'}}>
               {" "}
               <i className="fas fa-search" />
             </div>

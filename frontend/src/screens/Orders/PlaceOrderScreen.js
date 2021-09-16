@@ -70,9 +70,9 @@ export default function PlaceOrderScreen(props) {
                             </div>
                         </li>
                         <li>
-                            <div className="card card-body">
+                            <div className="card card-body wrapper">
                                 <h2>Order Items</h2>
-                                <ul>
+                                <ul style={{overflow:'auto', maxHeight: '400px', height: '100%', paddingRight: 10 }}>
                                     {
                                         cart.cartItems.map((item, index) => (
                                             <li key={index}>
