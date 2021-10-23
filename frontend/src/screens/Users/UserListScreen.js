@@ -4,6 +4,7 @@ import { deleteUser, listUsers } from '../../actions/userActions';
 import MessageBox from '../../components/MessageBox';
 import LoadingBox from '../../components/LoadingBox';
 import { USER_DETAILS_RESET } from '../../constants/userConstants';
+import PageHero from '../../components/PageHero';
 
 export default function UserListScreen(props) {
 
@@ -23,12 +24,12 @@ export default function UserListScreen(props) {
 
     useEffect(() => {
         dispatch(listUsers());
-        dispatch({type: USER_DETAILS_RESET})
+        dispatch({ type: USER_DETAILS_RESET })
     }, [dispatch, successDelete])
 
 
     const deleteHandler = (user) => {
-        if(window.confirm('Are you sure?')){
+        if (window.confirm('Are you sure?')) {
             dispatch(deleteUser(user._id));
         }
     }
@@ -36,6 +37,7 @@ export default function UserListScreen(props) {
 
     return (
         <div>
+            <PageHero link={`user`} name={`Account`} link2={`userlist`} name2={`User List`}></PageHero>
             <h1>Users</h1>
 
             {loadingDelete && <LoadingBox></LoadingBox>}
@@ -65,8 +67,8 @@ export default function UserListScreen(props) {
                                                 <td>{user._id}</td>
                                                 <td>{user.name}</td>
                                                 <td>{user.email}</td>
-                                                <td>{user.isSeller? 'YES' : 'NO'}</td>
-                                                <td>{user.isAdmin? 'YES' : 'NO'}</td>
+                                                <td>{user.isSeller ? 'YES' : 'NO'}</td>
+                                                <td>{user.isAdmin ? 'YES' : 'NO'}</td>
                                                 <td>
                                                     <button className="small edit-button" type="button" onClick={() => props.history.push(`/users/${user._id}/edit`)}>Edit</button>
                                                     <button className="small delete-button" type="button" onClick={() => deleteHandler(user)}>Delete</button>

@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import { createProduct, deleteProduct, listProducts } from '../../actions/productActions';
 import LoadingBox from '../../components/LoadingBox';
 import MessageBox from '../../components/MessageBox';
+import PageHero from '../../components/PageHero';
 import { PRODUCT_CREATE_RESET, PRODUCT_DELETE_RESET } from '../../constants/productConstants';
 
 export default function ProductListScreen(props) {
@@ -63,6 +64,7 @@ export default function ProductListScreen(props) {
 
     return (
         <div>
+            <PageHero link={`user`} name={`Account`} link2={`productlist`} name2={`Product List`}></PageHero>
             <div className="row">
                 <h1>Product</h1>
                 <button className="primary" type="button" onClick={createHandler}>Create Product</button>

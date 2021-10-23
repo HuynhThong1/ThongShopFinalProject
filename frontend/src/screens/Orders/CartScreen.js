@@ -68,7 +68,7 @@ export default function CartScreen(props) {
 
     return (
         <Fragment>
-            <PageHero title2={`/cart`} name2={`Cart`}></PageHero>
+            <PageHero link2={`/cart`} name2={`Cart`}></PageHero>
 
             <div className="row top">
                 <div className="col-2">

@@ -1,14 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-const PageHero = ({ title, title2, name2 }) => {
+const PageHero = ({ link, name, link2, name2 }) => {
   return (
     <Wrapper>
       <div className="section-center">
         <h3>
-          <Link to="/">Home</Link> 
-          {/* <Link to={`/${title}`}>/ {title}</Link> */}
-          <Link to={title2}>
+          <Link to="/">Home</Link>
+          {link ? <Link to={`/${link}`}>/ {name}</Link> : ''}
+          <Link to={link2}>
             {name2 && "/"} {name2}
           </Link>
         </h3>

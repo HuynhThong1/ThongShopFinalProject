@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 import { listProducts } from '../../actions/productActions';
 import { detailsUser } from '../../actions/userActions';
 import LoadingBox from '../../components/LoadingBox';
@@ -9,13 +11,20 @@ import Rating from '../../components/Rating';
 
 export default function SellerScreen(props) {
 
+    const {
+        pageNumber = 1,
+    } = useParams();
+
     const sellerId = props.match.params.id;
+
+    const productList = useSelector(state => state.productList);
+    const { page, pages } = productList;
+    const { loading: loadingProducts, error: errorProducts, products } = productList;
 
     const userDetails = useSelector(state => state.userDetails);
     const { loading, error, user } = userDetails;
 
-    const productList = useSelector(state => state.productList);
-    const { loading: loadingProducts, error: errorProducts, products } = productList;
+
 
 
 
@@ -23,11 +32,11 @@ export default function SellerScreen(props) {
     const dispatch = useDispatch();
 
     useEffect(() => {
+        const action = listProducts({ pageNumber });
+        dispatch(action);
         dispatch(detailsUser(sellerId))
         dispatch(listProducts({ seller: sellerId }));
-    }, [dispatch, sellerId]);
-
-
+    }, [dispatch, sellerId, pageNumber]);
 
     return (
         <div className="row top">
@@ -61,7 +70,7 @@ export default function SellerScreen(props) {
             </div>
             <div className="col-3">
                 {loadingProducts ? <LoadingBox></LoadingBox> :
-                errorProducts ? <MessageBox variant="danger">{errorProducts}</MessageBox> : (
+                    errorProducts ? <MessageBox variant="danger">{errorProducts}</MessageBox> : (
                         <>
                             {products.length === 0 && (<MessageBox>No Product Found</MessageBox>)}
                             <div className="cards">
@@ -69,6 +78,18 @@ export default function SellerScreen(props) {
                                     return <Product key={index} product={product} />
                                 })}
                             </div>
+
+                            {pages > 1 ? <div className="row center pagination">
+                                {[...Array(pages).keys()].map((x) => (
+                                    <Link
+                                        className={x + 1 === page ? 'active' : ''}
+                                        key={x + 1}
+                                        to={`seller/${sellerId}/pageNumber/${x + 1}`}
+                                    >
+                                        {x + 1}
+                                    </Link>
+                                ))}
+                            </div> : ''}
                         </>
                     )}
             </div>

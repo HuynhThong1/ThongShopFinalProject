@@ -108,7 +108,7 @@ export default function UserScreen(props) {
           <div className="user-information">
             <div>Name: {userInfo.name}</div>
             <div>Email: {userInfo.email}</div>
-            <div>
+            <div style={{}}>
               Total Orders:  
               {loading ? '' : error ? (
                 <MessageBox variant="danger">{error}</MessageBox>

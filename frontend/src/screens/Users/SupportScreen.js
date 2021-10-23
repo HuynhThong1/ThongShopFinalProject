@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import socketIOClient from 'socket.io-client';
 import { useSelector } from 'react-redux';
 import MessageBox from '../../components/MessageBox';
+import PageHero from '../../components/PageHero';
 
 let allUsers = [];
 let allMessages = [];
@@ -111,64 +112,67 @@ export default function SupportScreen() {
   };
 
   return (
-    <div className="row top full-container">
-      <div className="col-1 support-users">
-        {users.filter((x) => x._id !== userInfo._id).length === 0 && (
-          <MessageBox>No Online User Found</MessageBox>
-        )}
-        <ul>
-          {users
-            .filter((x) => x._id !== userInfo._id)
-            .map((user) => (
-              <li
-                key={user._id}
-                className={user._id === selectedUser._id ? '  selected' : '  '}
-              >
-                <button
-                  className="block"
-                  type="button"
-                  onClick={() => selectUser(user)}
+    <div>
+      <PageHero link={`user`} name={`Account`} link2={`support`} name2={`Support`} ></PageHero>
+      <div className="row top container">
+        <div className="col-1 support-users" >
+          {users.filter((x) => x._id !== userInfo._id).length === 0 && (
+            <MessageBox>No Online User Found</MessageBox>
+          )}
+          <ul>
+            {users
+              .filter((x) => x._id !== userInfo._id)
+              .map((user) => (
+                <li
+                  key={user._id}
+                  className={user._id === selectedUser._id ? '  selected' : '  '}
                 >
-                  {user.name}
-                </button>
-                <span
-                  className={
-                    user.unread ? 'unread' : user.online ? 'online' : 'offline'
-                  }
-                />
-              </li>
-            ))}
-        </ul>
-      </div>
-      <div className="col-3 support-messages">
-        {!selectedUser._id ? (
-          <MessageBox>Select a user to start chat</MessageBox>
-        ) : (
-          <div>
-            <div className="row">
-              <strong>Chat with {selectedUser.name} </strong>
-            </div>
-            <ul ref={uiMessagesRef}>
-              {messages.length === 0 && <li>No message.</li>}
-              {messages.map((msg, index) => (
-                <li key={index}>
-                  <strong>{`${msg.name}: `}</strong> {msg.body}
+                  <button
+                    className="block"
+                    type="button"
+                    onClick={() => selectUser(user)}
+                  >
+                    {user.name}
+                  </button>
+                  <span
+                    className={
+                      user.unread ? 'unread' : user.online ? 'online' : 'offline'
+                    }
+                  />
                 </li>
               ))}
-            </ul>
+          </ul>
+        </div>
+        <div className="col-3 support-messages">
+          {!selectedUser._id ? (
+            <MessageBox>Select a user to start chat</MessageBox>
+          ) : (
             <div>
-              <form onSubmit={submitHandler} className="row">
-                <input
-                  value={messageBody}
-                  onChange={(e) => setMessageBody(e.target.value)}
-                  type="text"
-                  placeholder="type message"
-                />
-                <button type="submit">Send</button>
-              </form>
+              <div className="row">
+                <strong>Chat with {selectedUser.name} </strong>
+              </div>
+              <ul ref={uiMessagesRef}>
+                {messages.length === 0 && <li>No message.</li>}
+                {messages.map((msg, index) => (
+                  <li key={index}>
+                    <strong>{`${msg.name}: `}</strong> {msg.body}
+                  </li>
+                ))}
+              </ul>
+              <div style={{ marginTop: 10 }}>
+                <form onSubmit={submitHandler} className="row">
+                  <input
+                    value={messageBody}
+                    onChange={(e) => setMessageBody(e.target.value)}
+                    type="text"
+                    placeholder="Type message..."
+                  />
+                  <button type="submit">Send</button>
+                </form>
+              </div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </div>
   );

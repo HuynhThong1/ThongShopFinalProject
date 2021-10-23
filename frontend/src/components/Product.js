@@ -40,7 +40,7 @@ export default function Product(props) {
                 <div className="bottom" id={'bottom' + product._id}>
                     <div className="left">
                         <div className="details">
-                            <h1>{product.name}</h1>
+                            <h1>{product.name.length > 20 ? product.name.slice(0, 20) + '...' : product.name}</h1>
                             <p>$ {product.price.toLocaleString()}</p>
                         </div>
                         <div className="buy" onClick={addToCartEvent}><i className="fas fa-shopping-cart" /></div>
@@ -48,7 +48,7 @@ export default function Product(props) {
                     <div className="right">
                         <div className="done"><i className="fas fa-check" /></div>
                         <div className="details">
-                            <h1>{product.name}</h1>
+                            <h1>{product.name.length > 20 ? product.name.slice(0, 20) + '...' : product.name}</h1>
                             <p>Added to your cart</p>
                         </div>
                         <div className="remove" onClick={removeFromCartEvent}><i className="fas fa-times" /></div>

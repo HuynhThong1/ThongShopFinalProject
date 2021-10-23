@@ -11,18 +11,18 @@ export const AdminRoute = (props) => {
 
     return (
         <Route exact path={props.path} render={(propsRoute) =>
-            userInfo && userInfo.isAdmin ? 
-            (<div className="grid-container">
-                <Header {...propsRoute} />
-                <main>
-                    <props.component {...propsRoute} />
-                </main>
-                <Footer {...propsRoute} />
-            </div>)
-            : 
-            (
-                <Redirect to="/signin" />
-            )
+            userInfo && userInfo.isAdmin ?
+                (<div className="grid-container">
+                    <Header {...propsRoute} />
+                    <main>
+                        <props.component {...propsRoute} />
+                    </main>
+                    <Footer {...propsRoute} />
+                </div>)
+                :
+                (
+                    <Redirect to="/signin" />
+                )
 
         }
         ></Route>

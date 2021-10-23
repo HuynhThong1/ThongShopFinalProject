@@ -23,7 +23,7 @@ export default function HomeScreen() {
   const { loading: loadingSellers, error: errorSellers, users: sellers } = userTopSellersList;
 
   useEffect(() => {
-    const action = listProducts({pageNumber});
+    const action = listProducts({ pageNumber });
     dispatch(action);
     dispatch(listTopSellers());
   }, [dispatch, pageNumber]);
@@ -74,6 +74,7 @@ export default function HomeScreen() {
                     className={x + 1 === page ? 'active' : ''}
                     key={x + 1}
                     to={`/pageNumber/${x + 1}`}
+                    style={{ color: '#254053' }}
                   >
                     {x + 1}
                   </Link>

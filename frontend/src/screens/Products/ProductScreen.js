@@ -37,6 +37,9 @@ export default function ProductScreen(props) {
 
 
   useEffect(() => {
+
+    window.scrollTo(0, 0);
+
     if (successReviewCreate) {
       window.alert("Review submitted successfully.");
       setRating("");
@@ -65,18 +68,18 @@ export default function ProductScreen(props) {
 
   return (
     <div>
-      <PageHero title2={`/product/${productId}`} name2={`${product?.name}`}></PageHero>
+      <PageHero link={`search/name/`} name={`Products`} link2={`/product/${productId}`} name2={`${product?.name}`}></PageHero>
       {loading ? (
         <LoadingBox></LoadingBox>
       ) : error ? (
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
         <div>
-          <Link to="/">
+          {/* <Link to="/">
             <button className="button back">
               <i className="fas fa-arrow-left"></i> Back
             </button>
-          </Link>
+          </Link> */}
           <div className="row top body-container">
             <div className="col-2">
               <div>
@@ -141,7 +144,7 @@ export default function ProductScreen(props) {
                   {product.countInStock > 0 && (
                     <>
                       <li>
-                        <div className="row" style={{margin: '2rem 0'}}>
+                        <div className="row" style={{ margin: '2rem 0' }}>
                           <div>Qty</div>
                           {/* <div className="wrapper">
                             <select

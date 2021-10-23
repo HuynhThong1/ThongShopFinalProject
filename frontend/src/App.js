@@ -3,7 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { HomeRoute } from './components/HomeRoute';
 import { PrivateRoute } from './components/PrivateRoute';
 import { NoneHomeRoute } from './components/NoneHomeRoute';
-import {AdminRoute} from './components/AdminRoute';
+import { AdminRoute } from './components/AdminRoute';
 import { SellerRoute } from './components/SellerRoute';
 import SellerScreen from './screens/Users/SellerScreen';
 import OrderScreen from './screens/Orders/OrderScreen';
@@ -29,14 +29,14 @@ import OrderListScreen from './screens/Orders/OrderListScreen';
 import UserEditScreen from './screens/Users/UserEditScreen';
 import HomeScreen from './screens/Products/HomeScreen';
 
+import GoongMap from './screens/Orders/Maps/GoongMap';
+
 
 function App() {
 
   return (
     <BrowserRouter>
       <HomeRoute exact path="/seller/:id" component={SellerScreen}></HomeRoute>
-
-
       <HomeRoute exact path="/product/:id" component={ProductScreen}></HomeRoute>
       <HomeRoute exact path="/product/:id/edit" component={ProductEditScreen}></HomeRoute>
       <HomeRoute exact path="/cart/:id?" component={CartScreen}></HomeRoute>
@@ -57,6 +57,7 @@ function App() {
 
       <PrivateRoute exact path="/profile" component={ProfileScreen}></PrivateRoute>
       <PrivateRoute exact path="/map" component={MapScreen}></PrivateRoute>
+      <NoneHomeRoute exact path="/goongmap" component={GoongMap}></NoneHomeRoute>
 
 
       <AdminRoute exact path="/dashboard" component={DashboardScreen}></AdminRoute>

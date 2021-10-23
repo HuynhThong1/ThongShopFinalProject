@@ -85,7 +85,7 @@ export default function SearchScreen(props) {
                                     <Link to={getFilterUrl({ min: p.min, max: p.max })}
                                         className={`${p.min}-${p.max}` === `${min}-${max}` ? 'active' : ''}>{p.name}</Link>
 
-                                        
+
                                 </li>
                             ))}
                         </ul>
@@ -104,7 +104,7 @@ export default function SearchScreen(props) {
 
                 </div>
                 <div className="col-3">
-                    <div className="row product-found" style={{marginLeft: 10}}>
+                    <div className="row product-found" style={{ marginLeft: 10 }}>
                         {loading ? '' :
                             error ? <MessageBox variant="danger">{error}</MessageBox> :
                                 (
@@ -142,6 +142,7 @@ export default function SearchScreen(props) {
                                                 className={x + 1 === page ? 'active' : ''}
                                                 key={x + 1}
                                                 to={getFilterUrl({ page: x + 1 })}
+                                                style={{ color: '#254053' }}
                                             >
                                                 {x + 1}
                                             </Link>

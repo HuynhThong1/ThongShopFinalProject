@@ -4,6 +4,7 @@ import { Chart } from "react-google-charts";
 import { summaryOrder } from '../../actions/orderActions';
 import LoadingBox from '../../components/LoadingBox';
 import MessageBox from '../../components/MessageBox';
+import PageHero from '../../components/PageHero';
 
 export default function DashboardScreen() {
   const orderSummary = useSelector((state) => state.orderSummary);
@@ -14,6 +15,7 @@ export default function DashboardScreen() {
   }, [dispatch]);
   return (
     <div>
+      <PageHero name={`Account`} link={`user`} link2={`/dashboard`} name2={`Dashboard`}></PageHero>
       <div className="row">
         <h1>Dashboard</h1>
       </div>

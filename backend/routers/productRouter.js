@@ -9,7 +9,7 @@ const productRouter = express.Router();
 
 productRouter.get('/', expressAsyncHandler(async (req, res) => {
 
-    const pageSize = 10;
+    const pageSize = 12;
     const page = Number(req.query.pageNumber) || 1;
 
 
@@ -28,8 +28,8 @@ productRouter.get('/', expressAsyncHandler(async (req, res) => {
     const priceFilter = min && max ? { price: { $gte: min, $lte: max } } : {};
     const ratingFilter = rating ? { rating: { $gte: rating } } : {};
     const sortOrder = order === 'lowest' ? { price: 1 } :
-                            order === 'highest' ? { price: -1 } :
-                            order === 'toprated' ? { rating: -1 } :{ _id: -1 };
+        order === 'highest' ? { price: -1 } :
+            order === 'toprated' ? { rating: -1 } : { _id: -1 };
 
     const count = await Product.count({
         ...sellerFilter,
@@ -46,10 +46,10 @@ productRouter.get('/', expressAsyncHandler(async (req, res) => {
         ...priceFilter,
         ...ratingFilter
     }).populate('seller', 'seller.name seller.logo')
-      .sort(sortOrder)
-      .skip(pageSize * (page - 1))
-      .limit(pageSize);
-    res.send({products, page, pages: Math.ceil(count / pageSize)});
+        .sort(sortOrder)
+        .skip(pageSize * (page - 1))
+        .limit(pageSize);
+    res.send({ products, page, pages: Math.ceil(count / pageSize) });
 }));
 
 
@@ -62,16 +62,16 @@ productRouter.get('/seed', expressAsyncHandler(async (req, res) => {
 
     const seller = await User.findOne({ isSeller: true });
     if (seller) {
-      const products = data.products.map((product) => ({
-        ...product,
-        seller: seller._id,
-      }));
-      const createdProducts = await Product.insertMany(products);
-      res.send({ createdProducts });
+        const products = data.products.map((product) => ({
+            ...product,
+            seller: seller._id,
+        }));
+        const createdProducts = await Product.insertMany(products);
+        res.send({ createdProducts });
     } else {
-      res
-        .status(500)
-        .send({ message: 'No seller found. first run /api/users/seed' });
+        res
+            .status(500)
+            .send({ message: 'No seller found. first run /api/users/seed' });
     }
     // await Product.remove({});
     // const createdProduct = await Product.insertMany(data.products);
@@ -152,10 +152,10 @@ productRouter.post('/:id/reviews', isAuth, expressAsyncHandler(async (req, res) 
     const product = await Product.findById(productId);
 
     if (product) {
-        if(product.reviews.find(x => x.name === req.user.name)) {
-            return res.status(400).send({message: 'You already submitted reviews.'})
+        if (product.reviews.find(x => x.name === req.user.name)) {
+            return res.status(400).send({ message: 'You already submitted reviews.' })
         }
-        const review = {name: req.user.name, rating: Number(req.body.rating), comment: req.body.comment}
+        const review = { name: req.user.name, rating: Number(req.body.rating), comment: req.body.comment }
 
         product.reviews.push(review);
         product.numReviews = product.reviews.length;
@@ -163,7 +163,7 @@ productRouter.post('/:id/reviews', isAuth, expressAsyncHandler(async (req, res) 
 
         const updatedProduct = await product.save();
 
-        res.status(201).send({ message: 'Review Created', review: updatedProduct .reviews[updatedProduct.reviews.length - 1]})
+        res.status(201).send({ message: 'Review Created', review: updatedProduct.reviews[updatedProduct.reviews.length - 1] })
     } else {
         res.status(404).send({ message: 'Product not found' });
     }

@@ -9,7 +9,6 @@ export const PrivateRoute = (props) => {
     const userSignin = useSelector(state => state.userSignin);
     const { userInfo } = userSignin;
 
-
     return (
         <Route exact path={props.path} render={(propsRoute) => userInfo ?
             (<div className="grid-container">

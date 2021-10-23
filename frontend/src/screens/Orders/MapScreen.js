@@ -29,6 +29,8 @@ export default function MapScreen(props) {
       getUserCurrentLocation();
     };
     fetch();
+
+
   }, []);
 
   const onLoad = (map) => {
@@ -121,4 +123,6 @@ export default function MapScreen(props) {
   ) : (
     <LoadingBox></LoadingBox>
   );
+
+
 }

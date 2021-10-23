@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { detailsUser, updateUserProfile } from "../../actions/userActions";
 import LoadingBox from "../../components/LoadingBox";
 import MessageBox from "../../components/MessageBox";
+import PageHero from "../../components/PageHero";
 import { USER_UPDATE_PROFILE_RESET } from "../../constants/userConstants";
 
 export default function ProfileScreen() {
@@ -36,6 +37,9 @@ export default function ProfileScreen() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+
+
     if (!user) {
       dispatch({ type: USER_UPDATE_PROFILE_RESET });
       dispatch(detailsUser(userInfo._id));
@@ -98,6 +102,7 @@ export default function ProfileScreen() {
 
   return (
     <div>
+      <PageHero link={`user`} name={`Account`} link2={`profile`} name2={`Profile`} ></PageHero>
       <form className="form" onSubmit={submitHandler}>
         <div>
           <h1>User Profile</h1>

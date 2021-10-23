@@ -81,48 +81,6 @@ export default function RegisterScreen(props) {
     return (
 
         <div>
-            {/* <div className="login-box">
-                <h2>Create An Account</h2>
-                <div style={{ marginBottom: 20 }}>
-                    {loading && <LoadingBox></LoadingBox>}
-                    {error && <MessageBox variant="danger">{error}</MessageBox>}
-                </div>
-                <form onSubmit={submitHandler}>
-                    <div className="user-box">
-                        <input type="text" id="name" required onChange={e => setName(e.target.value)} />
-                        <label>Name</label>
-                    </div>
-                    <div className="user-box">
-                        <input type="email" id="email" required onChange={e => setEmail(e.target.value)} />
-                        <label>Email</label>
-                    </div>
-                    <div className="user-box">
-                        <input type="password" id="password" required onChange={e => setPassword(e.target.value)} />
-                        <label>Password</label>
-                    </div>
-                    <div className="user-box">
-                        <input type="password" id="confirmPassword" required onChange={e => setConfirmPassword(e.target.value)} />
-                        <label>Confirm Password</label>
-                    </div>
-                    <button type="submit">
-                        <span />
-                        <span />
-                        <span />
-                        <span />
-                        Register
-                    </button>
-                    <br></br>
-                    <button type="button">
-                        <Link to={`/signin?redirect=${redirect}`}>
-                            <span />
-                            <span />
-                            <span />
-                            <span />
-                            Sign In
-                        </Link>
-                    </button>
-                </form>
-            </div> */}
 
             <div className="login-box">
                 <h2>Create An Account</h2>

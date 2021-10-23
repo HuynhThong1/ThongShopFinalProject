@@ -102,7 +102,7 @@ export default function ProductEditScreen(props) {
         <div>
             <form className="form" onSubmit={submitHandler}>
                 <div>
-                    <h1>Edit Product {productId}</h1>
+                    <h1>Product {productId}</h1>
                 </div>
 
                 {loadingUpdate && <LoadingBox></LoadingBox>}
@@ -131,7 +131,15 @@ export default function ProductEditScreen(props) {
                             </div>
                             <div>
                                 <label htmlFor="category">Category</label>
-                                <input id="category" type="text" placeholder="Enter category" value={category} onChange={e => setCategory(e.target.value)} />
+                                {/* <input id="category" type="text" placeholder="Enter category" value={category} onChange={e => setCategory(e.target.value)} /> */}
+
+                                <select id="category" value={category} onChange={e => setCategory(e.target.value)}>
+                                    <option>Shirts</option>
+                                    <option>Suits</option>
+                                    <option>Jackets</option>
+                                    <option>Waistcoats</option>
+                                    <option>Outerwear</option>
+                                </select>
                             </div>
                             <div>
                                 <label htmlFor="brand">Brand</label>
@@ -152,6 +160,6 @@ export default function ProductEditScreen(props) {
 
                         </>)}
             </form>
-        </div>
+        </div >
     )
 }
