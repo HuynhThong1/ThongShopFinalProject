@@ -45,7 +45,7 @@ export default function GoongMap() {
         });
     }, []);
 
-
+    console.log('events', events);
 
     return (
         <>

@@ -20,7 +20,6 @@ export const addToCart = (productId, qty) => async (dispatch, getState) => {
                 toast.addEventListener('mouseleave', Swal.resumeTimer)
             }
         })
-
         Toast.fire({
             icon: 'success',
             title: 'Add to cart successfully.'
@@ -40,14 +39,11 @@ export const addToCart = (productId, qty) => async (dispatch, getState) => {
             localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems));
         }
         )
-
     }
 }
 
 
 export const removeFromCart = (productId) => (dispatch, getState) => {
-
-
     const Toast = Swal.mixin({
         toast: true,
         position: 'top-end',

@@ -16,7 +16,7 @@ export default function PlaceOrderScreen(props) {
     }
 
     const orderCreate = useSelector(state => state.orderCreate);
-    const {loading, success, error, order} = orderCreate;
+    const { loading, success, error, order } = orderCreate;
 
     const toPrice = (num) => Number(num.toFixed(2)); //5.123 => '5.12' => 5.12
     cart.itemsPrice = toPrice(cart.cartItems.reduce((total, item) => total + item.qty * item.price, 0));
@@ -30,14 +30,14 @@ export default function PlaceOrderScreen(props) {
     const dispatch = useDispatch();
 
 
-    const placeOderHandler = () => {
+    const placeOrderHandler = () => {
         //Dispatch placeOrder action
-        dispatch(createOrder({...cart, orderItems: cart.cartItems}));
+        dispatch(createOrder({ ...cart, orderItems: cart.cartItems }));
 
     }
 
     useEffect(() => {
-        if(success) {
+        if (success) {
             props.history.push(`/order/${order._id}`);
             dispatch({
                 type: ORDER_CREATE_RESET
@@ -72,7 +72,7 @@ export default function PlaceOrderScreen(props) {
                         <li>
                             <div className="card card-body wrapper">
                                 <h2>Order Items</h2>
-                                <ul style={{overflow:'auto', maxHeight: '400px', height: '100%', paddingRight: 10 }}>
+                                <ul style={{ overflow: 'auto', maxHeight: '400px', height: '100%', paddingRight: 10 }}>
                                     {
                                         cart.cartItems.map((item, index) => (
                                             <li key={index}>
@@ -126,7 +126,7 @@ export default function PlaceOrderScreen(props) {
                                 </div>
                             </li>
                             <li>
-                                <button className="primary block" disabled={cart.cartItems.length === 0} onClick={placeOderHandler}>Place Order</button>
+                                <button className="primary block" disabled={cart.cartItems.length === 0} onClick={placeOrderHandler}>Place Order</button>
                             </li>
                             {loading && <LoadingBox></LoadingBox>}
                             {error && <MessageBox variant="danger">{error}</MessageBox>}

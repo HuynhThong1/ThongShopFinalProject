@@ -61,7 +61,7 @@ export default function Product(props) {
                     <h4 className="product-title">{product.name}</h4>
                     <div className="content-item">
                         {/* first seller is return of product seller, second seller is return a user seller */}
-                        <Link className="sellerName" to={`/seller/${product.seller._id}`}>Store:  {product.seller.seller.name} </Link>
+                        <Link className="sellerName" to={`/seller/${product.seller._id}`}>Store:  {product.seller.seller?.name} </Link>
                     </div>
 
                     <div className="content-item">

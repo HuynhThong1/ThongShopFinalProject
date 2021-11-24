@@ -33,7 +33,6 @@ export default function OrderScreen(props) {
     const dispatch = useDispatch();
 
     useEffect(() => {
-
         const addPayPalScript = async () => {
             const { data } = await axios.get('/api/config/paypal');
             const script = document.createElement('script');
@@ -111,7 +110,7 @@ export default function OrderScreen(props) {
                             <li>
                                 <div className="card card-body wrapper">
                                     <h2>Order Items</h2>
-                                    <div className="" style={{overflow:'auto', maxHeight: '400px', height: '100%', paddingRight: 10 }}>
+                                    <div className="" style={{ overflow: 'auto', maxHeight: '400px', height: '100%', paddingRight: 10 }}>
                                         <ul >
                                             {
                                                 order.orderItems.map((item, index) => (
